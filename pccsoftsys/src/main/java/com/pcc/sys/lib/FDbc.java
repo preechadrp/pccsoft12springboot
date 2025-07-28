@@ -55,7 +55,7 @@ public class FDbc extends FDbcMaster {
 		try {
 
 			String driverName = "org.firebirdsql.jdbc.FBDriver";
-			String urlConnect = "jdbc:firebird://localhost:3050/E:/pccsoft12Springboot/TSN.FDB?encoding=UTF8";
+			String urlConnect = "jdbc:firebird://localhost:3050/D:/pccsoft12Springboot/TSN.FDB?encoding=UTF8";
 			if (FOsUtil.isUnix()) {
 				urlConnect = "jdbc:firebird://localhost:3050//var/lib/firebird/data/TSNTEST.FDB?encoding=UTF8";
 			}
@@ -84,7 +84,7 @@ public class FDbc extends FDbcMaster {
 			FDbc dbc = new FDbc();
 
 			String driverName = "org.firebirdsql.jdbc.FBDriver";
-			String urlConnect = "jdbc:firebird://localhost:3050/E:/Firebird/databaseV5x/TSN.FDB?encoding=UTF8";
+			String urlConnect = "jdbc:firebird://localhost:3050/D:/Firebird/databaseV5x/TSN.FDB?encoding=UTF8";
 			String userName = "sysdba";
 			String passWord = "masterkey";
 
