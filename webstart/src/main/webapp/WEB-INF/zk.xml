@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<zk>
+	<!-- client-config -->
+	<client-config>
+		<disable-behind-modal>false</disable-behind-modal>
+	</client-config>
+
+	<!-- desktop-config -->
+	<desktop-config>
+		<desktop-timeout>3600</desktop-timeout>
+<!-- 		<theme-uri>/mystyle8.6.0.1.css</theme-uri> -->
+		<theme-uri>/mystyle9.5.0.css</theme-uri>
+	</desktop-config>
+
+	<!-- device-config -->
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/login</timeout-uri>
+		<embed><![CDATA[
+<script type="text/javascript" src="javascripts/stopback.js"></script>
+    ]]></embed>
+	</device-config>
+
+	<!-- library-property -->
+	<library-property>
+		<name>org.zkoss.web.preferred.locale</name>
+		<value>th</value>
+	</library-property>
+	
+	<!-- <library-property>  
+    	<name>org.zkoss.theme.preferred</name>-->
+    	<!-- <value>sapphire</value> -->
+    	<!--<value>breeze</value>-->
+    	<!--<value>deepsea</value>-->
+	<!--</library-property>-->
+
+	<!-- session-config -->
+	<session-config>
+		<!-- <session-timeout>1800</session-timeout>  -->
+		<!-- true = ทำให้ timer เวลา Ontime ทำงานเหมือนคันคน click ที่หน้าจอ -->
+		<timer-keep-alive>true</timer-keep-alive>
+		<!-- <max-desktops-per-session>15</max-desktops-per-session> -->
+		<max-requests-per-session>1</max-requests-per-session>
+		<!-- <max-pushes-per-session>3</max-pushes-per-session> -->
+	</session-config>
+
+	<!-- system-config -->
+	<system-config>
+		<!-- To use ZK in a clustering environment -->
+		<!-- disable-event-thread ตั้งแต่ zk 5 จะมีค่าเริ่มต้นเป็น true  และ zk 7 จะยกเลิกการใช้งาน  -->
+		<!-- <disable-event-thread>true</disable-event-thread>  -->
+		<!-- <ui-factory-class>org.zkoss.zk.ui.http.SerializableUiFactory</ui-factory-class>-->
+		<!-- <disable-zscript>true</disable-zscript>  -->
+	</system-config> 
+
+	<!-- language-config -->
+	<language-config>
+		<addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
+	</language-config>
+
+<!-- 	listener -->
+ 	<listener>
+		<listener-class>com.pcc.sys.lib.MyAppInit</listener-class>
+	</listener>
+
+</zk>

@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<parent>
+		<groupId>com.pcc</groupId>
+		<artifactId>pccsoft12</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>webstart</artifactId>
+	<packaging>war</packaging>
+	
+	<properties>
+		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format> 
+		<my.build.date>${maven.build.timestamp}</my.build.date>
+	</properties>
+
+	<dependencies>
+
+		<!-- ตอนเรียกใช้ module ที่สร้าง-->
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsoftsys</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsoftgl</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsofttk</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.pcc</groupId>
+			<artifactId>pccsoftbx</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
+	</dependencies>
+	
+	<build>
+		
+		<finalName>pccsoft12-${my.build.date}</finalName> <!-- กำหนดชื่อไฟล์ WAR -->
+		
+        <plugins>
+             <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                    <mainClass>com.pcc.Webstart</mainClass>
+                    <!-- จะไปอยู่ใน root folder pccsoft12  -->
+                    <outputDirectory>${project.basedir}/../../</outputDirectory>
+                </configuration>
+			</plugin>
+        </plugins>
+    </build>
+
+</project>

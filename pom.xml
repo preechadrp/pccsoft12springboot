@@ -1,0 +1,207 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.6</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pcc</groupId>
+	<artifactId>pccsoft12</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<name>mainproject</name>
+
+	<properties>
+		<java.version>21</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dynamicreports.version>5.0.0</dynamicreports.version>
+		<zk.version>9.6.0.2-jakarta</zk.version>
+	</properties>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<!--<version>4.13.2</version>-->
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Provides fast application restarts, LiveReload, and configurations for enhanced development experience. -->
+		<dependency>
+	      	<groupId>org.springframework.boot</groupId>
+	      	<artifactId>spring-boot-devtools</artifactId>
+	      	<scope>runtime</scope>
+	      	<optional>true</optional>
+	    </dependency>
+		
+		<!-- zul config -->
+		<!-- https://mvnrepository.com/artifact/org.zkoss.zk/zul -->
+		<dependency>
+		    <groupId>org.zkoss.zk</groupId>
+		    <artifactId>zul</artifactId>
+		    <version>${zk.version}</version>
+		</dependency>
+		<!-- If you want to use data binding, include this -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<!-- If you want to use zk xhtml component set, include this -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zhtml</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<!-- end zul config -->
+
+		<!-- dynamicreports -->
+		<dependency>
+			<groupId>net.sourceforge.dynamicreports</groupId>
+			<artifactId>dynamicreports-core</artifactId>
+			<version>${dynamicreports.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.dynamicreports</groupId>
+			<artifactId>dynamicreports-adhoc</artifactId>
+			<version>${dynamicreports.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.dynamicreports</groupId>
+			<artifactId>dynamicreports-googlecharts</artifactId>
+			<version>${dynamicreports.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>xmlgraphics-commons</artifactId>
+			<version>2.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!--<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>-->
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.10.1</version>
+		</dependency>
+
+		<!-- end dynamicreports -->
+		
+		<dependency>
+			<groupId>org.asteriskjava</groupId>
+			<artifactId>asterisk-java</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.firebirdsql.jdbc/jaybird -->
+		<dependency>
+		    <groupId>org.firebirdsql.jdbc</groupId>
+		    <artifactId>jaybird</artifactId>
+		    <!--<version>5.0.6.java11</version>-->
+		    <scope>provided</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.10.1</version>
+		</dependency>
+		
+		<!-- แก้ปัญหาให้ jasper report กรณีใช้ JDK11-->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		    <version>0.9.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20170516</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+		<!-- ตั้งแต่ 1.2.15 จะมี dependency เพิ่มเข้ามาประมาณ 4 ไฟล์จึงเลือกแค่ version นี้ -->
+		<!--<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>-->
+
+	</dependencies>
+
+	<modules>
+		<module>webstart</module>
+		<module>pccsoftsys</module>
+		<module>pccsoftgl</module>
+		<module>pccsoftbx</module>
+		<module>pccsofttk</module>
+	</modules>
+	
+</project>
