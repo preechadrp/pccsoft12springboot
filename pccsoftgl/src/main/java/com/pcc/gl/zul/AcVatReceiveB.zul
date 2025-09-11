@@ -92,9 +92,9 @@
 				<label value="*" style="color:red;" />
 				<decimalbox id="decSUMREC" onChange="spaceOwner.onChange_Data(this.self)"
 					tooltiptext="ยอดรับภาษีซื้อจริง" />
-				<label value="มูลค่าสินค้า/บริการ" />
+				<label value="มูลค่าสินค้า/บริการสุทธิ" />
 				<label value="*" style="color:red;" />
-				<decimalbox id="decSUMBASE_AMT" tooltiptext="มูลค่าสินค้า/บริการ" />
+				<decimalbox id="decSUMBASE_AMT" tooltiptext="มูลค่าสินค้า/บริการสุทธิ" />
 			</div>
 
 			<div>

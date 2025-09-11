@@ -212,7 +212,7 @@ public class AcVatReceiveB extends FWinMenu {
 				validateData(dbc);
 
 				BigDecimal sumrec = decSUMREC.getValue();// ยอดรับภาษีซื้อจริง
-				BigDecimal sumbase_amt = decSUMBASE_AMT.getValue();// มูลค่าสินค้า/บริการ
+				BigDecimal sumbase_amt = decSUMBASE_AMT.getValue();// มูลค่าสินค้า/บริการสุทธิ
 				BigDecimal sumdiff = decSUMDIFF.getValue();// ผลต่าง
 				String acct_id_diff = txtACCT_ID_DIFF.getValue();// รหัสบัญชีส่วนต่าง
 				String docno = txtDOCNO.getValue().trim();// เลขที่เอกสาร

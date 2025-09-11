@@ -35,8 +35,8 @@
 			<label value="ภาษี" />
 			<decimalbox id="decAMT" width="150px" tooltiptext="ภาษี" readonly="true" />
 
-			<label value="มูลค่าสินค้า/บริการ" />
-			<decimalbox id="decBASE_AMT" width="150px" tooltiptext="มูลค่าสินค้า/บริการ" readonly="true" />
+			<label value="มูลค่าสินค้า/บริการสุทธิ" />
+			<decimalbox id="decBASE_AMT" width="150px" tooltiptext="มูลค่าสินค้า/บริการสุทธิ" readonly="true" />
 
 		</div>
 

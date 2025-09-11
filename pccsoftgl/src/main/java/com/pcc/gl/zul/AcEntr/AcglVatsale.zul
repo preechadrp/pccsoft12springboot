@@ -68,11 +68,11 @@
 			</div>
 
 			<div>
-				<label value="มูลค่าสินค้า/บริการ" />
+				<label value="มูลค่าสินค้า/บริการสุทธิ" />
 				<label value="*" style="color:red;" />
 			</div>
 			<div>
-				<decimalbox id="decBASE_AMT" width="150px" tooltiptext="มูลค่าสินค้า/บริการ" />
+				<decimalbox id="decBASE_AMT" width="150px" tooltiptext="มูลค่าสินค้า/บริการสุทธิ" />
 			</div>
 		</div>
 

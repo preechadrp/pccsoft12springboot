@@ -56,7 +56,7 @@
 				<column label="ผู้จำหน่าย" width="120px" align="left" />
 				<column label="คำอธิบายรายการ" width="200px" align="left" />
 				<column label="จำนวนเงิน" width="100px" align="center" />
-				<column label="มูลค่าสินค้า/บริการ" width="115px" align="center" />
+				<column label="มูลค่าสินค้า/บริการสุทธิ" width="150px" align="center" />
 			</columns>
 			<rows></rows>
 		</grid>
@@ -78,7 +78,7 @@
 				<column label="ผู้จำหน่าย" width="120px" align="left" />
 				<column label="คำอธิบายรายการ" width="150px" align="left" />
 				<column label="จำนวนเงิน" width="100px" align="center" />
-				<column label="มูลค่าสินค้า/บริการ" width="115px" align="center" />
+				<column label="มูลค่าสินค้า/บริการสุทธิ" width="150px" align="center" />
 			</columns>
 			<rows></rows>
 		</grid>

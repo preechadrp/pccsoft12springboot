@@ -59,7 +59,7 @@
 				<column label="เงื่อนไขการหัก" width="120px" align="left" sort="auto(WHTYPE)" />
 				<column label="อัตราภาษี" width="70px" align="right" sort="auto(VAT_RATE)" />
 				<column label="จำนวน" width="90px" align="right" sort="auto(AMT)" />
-				<column label="มูลค่าสินค้า" width="100px" align="right" sort="auto(BASE_AMT)" />
+				<column label="มูลค่าสินค้าสุทธิ" width="150px" align="right" sort="auto(BASE_AMT)" />
 				<column label="เลขที่หัก" width="90px" align="left" sort="auto(DOCNO)" />
 				<column label="คำอธิบายรายการ" width="350px" align="left" />
 			</columns>
@@ -83,7 +83,7 @@
 				<column label="เงื่อนไขการหัก" width="120px" align="left" sort="auto(WHTYPE)" />
 				<column label="อัตราภาษี" width="70px" align="right" sort="auto(VAT_RATE)" />
 				<column label="จำนวน" width="90px" align="right" sort="auto(AMT)" />
-				<column label="มูลค่าสินค้า" width="100px" align="right" sort="auto(BASE_AMT)" />
+				<column label="มูลค่าสินค้าสุทธิ" width="150px" align="right" sort="auto(BASE_AMT)" />
 				<column label="เลขที่หัก" width="90px" align="left" sort="auto(DOCNO)" />
 				<column label="คำอธิบายรายการ" width="350px" align="left" />
 			</columns>

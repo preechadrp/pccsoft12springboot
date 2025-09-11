@@ -261,7 +261,7 @@ public class ManAcVatpurRep {
 		}).setStyle(DynamicReports.stl.style(styleDefault).setRightPadding(5)).setFixedWidth(80).setPattern("#,##0.00")
 				.setHorizontalTextAlignment(HorizontalTextAlignment.RIGHT));
 
-		myreport.addColumn(DynamicReports.col.column("มูลค่าสินค้า", new AbstractSimpleExpression<BigDecimal>() {
+		myreport.addColumn(DynamicReports.col.column("มูลค่าสินค้าสุทธิ", new AbstractSimpleExpression<BigDecimal>() {
 			@Override
 			public BigDecimal evaluate(ReportParameters reportParameters) {
 				return (BigDecimal) reportParameters.getFieldValue("BASE_AMT");
@@ -432,7 +432,7 @@ public class ManAcVatpurRep {
 		}).setStyle(DynamicReports.stl.style(styleDefault).setRightPadding(5)).setFixedWidth(80).setPattern("#,##0.00")
 				.setHorizontalTextAlignment(HorizontalTextAlignment.RIGHT));
 
-		myreport.addColumn(DynamicReports.col.column("มูลค่าสินค้า", new AbstractSimpleExpression<BigDecimal>() {
+		myreport.addColumn(DynamicReports.col.column("มูลค่าสินค้าสุทธิ", new AbstractSimpleExpression<BigDecimal>() {
 			@Override
 			public BigDecimal evaluate(ReportParameters reportParameters) {
 				return (BigDecimal) reportParameters.getFieldValue("BASE_AMT");
