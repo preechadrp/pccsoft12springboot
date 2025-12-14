@@ -1,0 +1,43 @@
+<zk>
+	<window use="com.pcc.tk.ui.FrmTkJob.FrmTkDescManage1" id="FrmTkDescManage1" width="900px" title="จัดการคำอธิบายรายการ" border="normal">
+
+		<div sclass="div-toolbar">
+			<button id="btnExit" label="${labels.comm.label.exit}" onClick="spaceOwner.onClose()" />
+		</div>
+
+		<separator />
+
+		<div sclass="mainGridLayout1">
+
+			<div>
+				<label value="คำอธิบายเอกสาร" />
+			</div>
+			<div>
+				<textbox id="txtDOCDESC" width="250px" tooltiptext="คำอธิบายเอกสาร" placeholder="ทั้งหมด" />
+			</div>
+
+			<label value="" />
+			<hbox>
+				<button id="btnShow" label="${labels.comm.label.find}" onClick="spaceOwner.onClick_btnShow()" />
+			</hbox>
+
+		</div>
+
+		<grid id="grdViewt" mold="paging" pageSize="15">
+			<columns sizable="true">
+				<column label=".." width="100px" align="center" />
+				<column label="ลำดับ" width="80px" align="center" />
+				<column label="คำอธิบาย" align="left" />
+			</columns>
+			<rows>
+				<row>
+					<button label="ลบ" />
+					<label value="1" />
+					<label value="abc" />
+				</row>
+			</rows>
+		</grid>
+
+	</window>
+
+</zk>

@@ -361,5 +361,13 @@ public class FrmTkJobDoc extends FWindow {
 		}
 
 	}
+	
+	public void onClick_btnAddEditDesc() {
+		try {
+			FrmTkDescManage1.showData(getLoginBean(), this, event1 -> loadDescName());
+		} catch (Exception e) {
+			Msg.error(e.getMessage());
+		}
+	}
 
 }

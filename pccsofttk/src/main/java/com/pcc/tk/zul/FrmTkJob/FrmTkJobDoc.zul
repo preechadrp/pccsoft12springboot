@@ -29,6 +29,8 @@
 			<div>
 				<combobox id="cmbDOCDESC" width="400px" maxlength="250" tooltiptext="คำอธิบาย" autocomplete="true" autodrop="true" />
 				<button id="btnAdd" label="${labels.comm.label.add}" onClick="spaceOwner.onClick_btnAdd()" sclass="buttonAdd" />
+				<space spacing="20px" />
+				<button id="btnAddEditDesc" label="จัดการคำอธิบายรายการ" onClick="spaceOwner.onClick_btnAddEditDesc()" sclass="buttonAdd" />
 			</div>
 
 			<label value="" />
