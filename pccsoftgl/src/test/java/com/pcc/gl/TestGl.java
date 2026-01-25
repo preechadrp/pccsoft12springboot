@@ -75,7 +75,7 @@ public class TestGl {
 					JasperXlsExporterBuilder xlsExporter = Exporters.xlsExporter("c:/tmp/report.xls")
 							.setDetectCellType(true).setIgnorePageMargins(true).setWhitePageBackground(false)
 							.setRemoveEmptySpaceBetweenColumns(true);
-					ManAcProfit.genReportExcel(reportDataSource, reportParams, _loginBean).toXls(xlsExporter);
+					ManAcProfit.genReportExcel(reportDataSource, reportParams, _loginBean,"").toXls(xlsExporter);
 				}
 			}
 
