@@ -1,6 +1,7 @@
 package com.pcc.gl.ui.acProfit;
 
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
 
 import com.pcc.gl.progman.ManAcProfit;
@@ -14,12 +15,14 @@ public class AcProfit extends FWinMenu {
 
 	private static final long serialVersionUID = 1L;
 
+	public Combobox cmbOption;
 	public Datebox tdbFromPostdate, tdbToPostdate;
 
 	public Button btnExit, btnPrint, btnSave, btnDelete, btnAdd;
 
 	@Override
 	public void setFormObj() {
+		cmbOption = (Combobox) getFellow("cmbOption");
 		tdbFromPostdate = (Datebox) getFellow("tdbFromPostdate");
 		tdbToPostdate = (Datebox) getFellow("tdbToPostdate");
 
@@ -29,6 +32,7 @@ public class AcProfit extends FWinMenu {
 
 	@Override
 	public void addEnterIndex() {
+		addEnterIndex(cmbOption);
 		addEnterIndex(tdbFromPostdate);
 		addEnterIndex(tdbToPostdate);
 		addEnterIndex(btnPrint);
@@ -45,7 +49,9 @@ public class AcProfit extends FWinMenu {
 	}
 
 	private void clearData() {
+		cmbOption.setSelectedIndex(0);
 		tdbFromPostdate.focus();
+		onChange_cmbOption();
 	}
 
 	public void onOK() {
@@ -62,10 +68,21 @@ public class AcProfit extends FWinMenu {
 		if (tdbFromPostdate.getValue() == null) {
 			throw new Exception("ระบุช่อง \"" + tdbFromPostdate.getTooltiptext() + "\" ");
 		}
-		if (tdbToPostdate.getValue() == null) {
-			throw new Exception("ระบุช่อง \"" + tdbToPostdate.getTooltiptext() + "\" ");
+		
+		if (cmbOption.getSelectedIndex() == 0) {
+			if (tdbToPostdate.getValue() == null) {
+				throw new Exception("ระบุช่อง \"" + tdbToPostdate.getTooltiptext() + "\" ");
+			}
 		}
 
+	}
+	
+	public void onChange_cmbOption() {
+		if (cmbOption.getSelectedIndex() == 0) {
+			tdbToPostdate.setDisabled(false);
+		} else {
+			tdbToPostdate.setDisabled(true);
+		}
 	}
 
 	public void onClick_btnPrint(int print_option) {
@@ -74,8 +91,13 @@ public class AcProfit extends FWinMenu {
 
 			validateData();
 			FJasperPrintList fJasperPrintList = new FJasperPrintList();
-			ManAcProfit.getReport(this.getLoginBean(), FnDate.getSqlDate(tdbFromPostdate.getValue()),
-					FnDate.getSqlDate(tdbToPostdate.getValue()), fJasperPrintList, print_option);
+			if (cmbOption.getSelectedIndex() == 0) {
+				ManAcProfit.getReport(this.getLoginBean(), FnDate.getSqlDate(tdbFromPostdate.getValue()),
+						FnDate.getSqlDate(tdbToPostdate.getValue()), fJasperPrintList, print_option);
+			} else {
+				ManAcProfit.getReport12m(this.getLoginBean(), FnDate.getSqlDate(tdbFromPostdate.getValue()),
+						fJasperPrintList, print_option);
+			}
 			if (fJasperPrintList.getJasperPrintLst().size() > 0) {
 				if (print_option == 1) {
 					FReport.viewPdf(fJasperPrintList.getJasperPrintLst());

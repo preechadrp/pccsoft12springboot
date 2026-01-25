@@ -59,8 +59,49 @@ public class ManAcProfit {
 							genReportPDF(reportDataSource, reportParams, _loginBean).toJasperPrint());
 				} else {// excel
 					fJasperPrintList.addJasperPrintList(
-							genReportExcel(reportDataSource, reportParams, _loginBean).toJasperPrint());
+							genReportExcel(reportDataSource, reportParams, _loginBean, "รายงานงบกำไรขาดทุน").toJasperPrint());
 				}
+			}
+
+		}
+
+	}
+	
+	public static void getReport12m(LoginBean _loginBean, java.sql.Date fromPostdate, 
+			FJasperPrintList fJasperPrintList, int print_option) throws Exception {
+
+		try (FDbc dbc = FDbc.connectMasterDb()) {
+
+			java.sql.Date fromPostdate_use = null;
+			java.sql.Date toPostdate_use = null;
+			for (int idx = 0; idx < 12; idx++) {
+				if (idx == 0) {
+					fromPostdate_use = fromPostdate;
+				} else {
+					fromPostdate_use = FnDate.addMonth(fromPostdate, idx);
+				}
+				toPostdate_use = FnDate.addDay(FnDate.addMonth(fromPostdate_use, 1), -1);
+
+				Map reportParams = new HashMap();
+				reportParams.put("reportName", "รายงานงบกำไรขาดทุน");
+				String reportConditionString1 = "";
+				reportConditionString1 += "จากวันที่ " + FnDate.displayDateString(fromPostdate_use) + " ถึง "
+						+ FnDate.displayDateString(toPostdate_use);
+				reportParams.put("reportConditionString1", reportConditionString1);
+
+				FJRBeanCollectionDataSource reportDataSource = createDataSource(dbc, _loginBean, fromPostdate_use,
+						toPostdate_use,
+						print_option);
+				if (reportDataSource != null) {
+					if (print_option == 1) {// pdf
+						fJasperPrintList.addJasperPrintList(
+								genReportPDF(reportDataSource, reportParams, _loginBean).toJasperPrint());
+					} else {// excel
+						fJasperPrintList.addJasperPrintList(
+								genReportExcel(reportDataSource, reportParams, _loginBean, "" + (idx + 1)).toJasperPrint());
+					}
+				}
+
 			}
 
 		}
@@ -106,7 +147,7 @@ public class ManAcProfit {
 		}
 
 	}
-
+	
 	@SuppressWarnings("serial")
 	public static JasperReportBuilder genReportPDF(FJRBeanCollectionDataSource dataSrc, Map reportParams,
 			LoginBean _loginBean) {
@@ -326,7 +367,7 @@ public class ManAcProfit {
 	}
 
 	@SuppressWarnings("serial")
-	public static JasperReportBuilder genReportExcel(JRDataSource dataSrc, Map reportParams, LoginBean _loginBean) {
+	public static JasperReportBuilder genReportExcel(JRDataSource dataSrc, Map reportParams, LoginBean _loginBean, String reportName) {
 
 		StyleBuilder styleDefault = DynamicRepTemplates.getRootStyle();// สำหรับเริ่มต้นค่าใน report นี้
 
@@ -352,6 +393,7 @@ public class ManAcProfit {
 					}
 				});
 
+		myreport.setReportName(reportName);
 		// == start เพิ่มฟิลด์
 		addFieldToReport(myreport);
 		// == end เพิ่มฟิลด์

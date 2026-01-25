@@ -12,6 +12,13 @@
 		<separator />
 
 		<div sclass="mainGridLayout1">
+			
+			<label value="ตัวเลือก" />
+			<combobox id="cmbOption" tooltiptext="จากเดือน" width="150px" onChange="spaceOwner.onChange_cmbOption()" readonly="true" >
+				<comboitem value="1" label="จากวันที่ถึงวันที่" />
+				<comboitem value="2" label="แบบ 12 เดือน" />
+			</combobox>
+			
 			<label value="จากวันที่ใบสำคัญ" />
 			<datebox id="tdbFromPostdate" tooltiptext="จากวันที่ใบสำคัญ" />
 
