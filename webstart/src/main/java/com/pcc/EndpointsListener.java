@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 @Component
 public class EndpointsListener implements ApplicationListener<ApplicationReadyEvent> {
 
-	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
+	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(EndpointsListener.class);
 	
     private final RequestMappingHandlerMapping handlerMapping;
 

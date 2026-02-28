@@ -7,7 +7,7 @@ import com.pcc.sys.lib.FConstComm;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 	
-	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
+	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(ServletInitializer.class);
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

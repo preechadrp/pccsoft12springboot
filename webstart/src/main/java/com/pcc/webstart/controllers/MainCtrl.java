@@ -16,17 +16,17 @@ public class MainCtrl {
 	
 	@GetMapping("/login")   //สร้างเพื่อให้พิมพ์ http://localhost:8080/login   โดยไม่ต้องใส่ .zul ต่อท้าย
     public String login() {
-        return "login"; //ไม่ต้องใส่  .zul ต่อท้าย
+        return "forward:/login.zul";  
     }
 	
 	@GetMapping("/menu")  //สร้างเพื่อให้พิมพ์ http://localhost:8080/menu   โดยไม่ต้องใส่ .zul ต่อท้าย
     public String menu() {
-        return "menu"; //ไม่ต้องใส่  .zul ต่อท้าย
+        return "forward:/menu.zul";
     }
 	
 	@GetMapping("/timeout")
     public String timeout() {
-        return "timeout"; //ไม่ต้องใส่  .zul ต่อท้าย
+        return "forward:/timeout.zul";
     }
 	
 }
