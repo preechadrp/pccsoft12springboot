@@ -4,21 +4,22 @@ import java.util.Locale;
 
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ระบบจะรันตัวเองอัตโนมัติเมื่อ tomcat ทำงาน ไม่ต้องประกาศใน web.xml เพราะใช้
  * Annotation
  *
  */
+@Slf4j 
 public class MyStartConfigListener implements ServletContextListener {
 
-	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
 	
 	/**
 	 * Default constructor.
 	 */
 	public MyStartConfigListener() {
-		logger.info("MyStartConfigListener -- constructor");
+		log.info("MyStartConfigListener -- constructor");
 
 		// แก้ปัญหาเรื่อง prepare statment ( setdate ,settimestamp )
 		// สำคัญมากถ้าเกี่ยวกับการใช้ JDBC เชื่อมฐานข้อมูล
@@ -31,14 +32,14 @@ public class MyStartConfigListener implements ServletContextListener {
 	 * @see ServletContextListener#contextInitialized(ServletContextEvent)
 	 */
 	public void contextInitialized(ServletContextEvent arg0) {
-		logger.info("MyStartConfigListener -- contextInitialized");
+		log.info("MyStartConfigListener -- contextInitialized");
 	}
 	
 	/**
 	 * @see ServletContextListener#contextDestroyed(ServletContextEvent)
 	 */
 	public void contextDestroyed(ServletContextEvent arg0) {
-		logger.info("MyStartConfigListener -- contextDestroyed");
+		log.info("MyStartConfigListener -- contextDestroyed");
 	}
 
 }

@@ -4,6 +4,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
@@ -16,6 +17,7 @@ import com.pcc.sys.lib.MyStartConfigListener;
  * Created by preecha on 5/12/67
  */
 @Configuration
+@DependsOn("FirstConfig")
 public class WebConfig01 {
 
 //	@Override  //เมื่อใช้งาน @EnableWebMvc และ WebConfig01 implements WebMvcConfigurer  จะต้องจัดการ resource เพิ่มเพราะระบบจะไม่เห็น  path เหล่านี้

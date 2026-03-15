@@ -10,10 +10,6 @@ public class FConstComm {
 	public static final boolean encodePassword = true; //เข้ารหัสสำหรับรหัสผ่าน user
 	//public static final String msgNoRight = "ไม่มีสิทธิ์ใช้เมนูนี้";
 	
-	/**
-	 * 1 = รันแบบ spring boot , 2 = deploy ใน tomcat
-	 */
-	public static int runAppMode = 1;
 	//== End ระบบกลาง
 
 //	/**

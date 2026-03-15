@@ -5,10 +5,9 @@ package com.pcc;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-@Component
+//@org.springframework.stereotype.Component  //ใช้แสดง Endpoint ทั้งระบบ
 public class EndpointsListener implements ApplicationListener<ApplicationReadyEvent> {
 
 	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(EndpointsListener.class);
