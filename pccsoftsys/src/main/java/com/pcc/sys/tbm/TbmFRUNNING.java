@@ -11,7 +11,7 @@ public class TbmFRUNNING {
 	public static String getRunning(String comp_cde, String running_id,
 			java.sql.Date docdate, int len, boolean withMonth) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getRunning(dbc, comp_cde, running_id, docdate, len, withMonth);
 		}
 

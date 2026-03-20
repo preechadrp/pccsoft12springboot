@@ -201,7 +201,7 @@ public class FrmTkZone extends FWinMenu {
 	public void onClick_Save() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -254,7 +254,7 @@ public class FrmTkZone extends FWinMenu {
 	public void doOnClick_Delete() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				TboTKZONE table1 = new TboTKZONE();

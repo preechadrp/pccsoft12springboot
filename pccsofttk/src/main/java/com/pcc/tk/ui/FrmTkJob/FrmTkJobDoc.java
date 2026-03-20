@@ -318,7 +318,7 @@ public class FrmTkJobDoc extends FWindow {
 		Msg.confirm(Labels.getLabel("comm.label.deleteComfirm") + " ?", "?", (event1) -> {
 			if (Messagebox.Button.YES.equals(event1.getButton())) {
 
-				try (FDbc dbc = FDbc.connectMasterDb()) {
+				try (FDbc dbc = new FDbc()) {
 
 					// === ลบภาพก่อน
 					TboTKIMGS tkimgs = new TboTKIMGS();

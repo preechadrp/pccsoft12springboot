@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFAMPHUR;
 
 public class TbfFAMPHUR {
 	public static boolean insert(TboFAMPHUR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFAMPHUR {
 	}
 
 	public static boolean update(TboFAMPHUR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFAMPHUR {
 	}
 
 	public static boolean update(TboFAMPHUR model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfFAMPHUR {
 	}
 
 	public static boolean delete(TboFAMPHUR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -82,7 +82,7 @@ public class TbfFAMPHUR {
 	}
 
 	public static boolean find(TboFAMPHUR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

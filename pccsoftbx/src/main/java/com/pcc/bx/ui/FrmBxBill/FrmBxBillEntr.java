@@ -374,7 +374,7 @@ public class FrmBxBillEntr extends FWindow {
 
 		String new_BLNO = "";
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			if (Fnc.isEmpty(txtTMPLCDE.getValue())) {
@@ -487,7 +487,7 @@ public class FrmBxBillEntr extends FWindow {
 	}
 
 	private void read_record(String blno) throws WrongValueException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			read_record(dbc, blno);
 		}
 	}
@@ -713,7 +713,7 @@ public class FrmBxBillEntr extends FWindow {
 		boolean[] clearWhenError = { false };
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				// == validate
@@ -865,7 +865,7 @@ public class FrmBxBillEntr extends FWindow {
 
 		boolean[] clearWhenError = { false };
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			if (Fnc.isEmpty(txtBRANC_NAME.getValue())) {
@@ -909,7 +909,7 @@ public class FrmBxBillEntr extends FWindow {
 
 					boolean[] clearWhenError = { false };
 
-					try (FDbc dbc = FDbc.connectMasterDb()) {
+					try (FDbc dbc = new FDbc()) {
 						dbc.beginTrans();
 
 						TboBXHEADER bxH = new TboBXHEADER();

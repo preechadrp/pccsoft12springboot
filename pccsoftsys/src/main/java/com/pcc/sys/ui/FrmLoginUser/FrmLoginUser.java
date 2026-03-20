@@ -254,7 +254,7 @@ public class FrmLoginUser extends FWinMenu {
 		boolean newrec = true;
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -326,7 +326,7 @@ public class FrmLoginUser extends FWinMenu {
 			if (Messagebox.Button.YES.equals(event1.getButton())) {
 
 				try {
-					try (FDbc dbc = FDbc.connectMasterDb()) {
+					try (FDbc dbc = new FDbc()) {
 						dbc.beginTrans();
 
 						//== del FUSER

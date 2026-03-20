@@ -128,7 +128,7 @@ public class AcglVatpur extends FWinUtil {
 
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				if (save_option == 1) {

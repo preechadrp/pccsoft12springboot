@@ -13,7 +13,7 @@ public class TbmTKJOBDOCS {
 		lst_data.clear();
 
 		String sql = " select * from tkjobdocs where COMP_CDE=? and JOBNO=? order by DOCSEQ ";
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.ResultSet rs = dbc.getResultSetFw2(sql, comp_cde, jobno)) {
 
 			while (rs.next()) {
@@ -30,7 +30,7 @@ public class TbmTKJOBDOCS {
 		int ret = 0;
 
 		String sql = " select max(DOCSEQ) as F1 from tkjobdocs where COMP_CDE=? and JOBNO=? ";
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.ResultSet rs = dbc.getResultSetFw2(sql, comp_cde, jobno)) {
 
 			while (rs.next()) {

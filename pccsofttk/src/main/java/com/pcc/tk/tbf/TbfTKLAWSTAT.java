@@ -9,7 +9,7 @@ import com.pcc.tk.tbo.TboTKLAWSTAT;
 
 public class TbfTKLAWSTAT {
 	public static boolean insert(TboTKLAWSTAT model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -27,7 +27,7 @@ public class TbfTKLAWSTAT {
 	}
 
 	public static boolean update(TboTKLAWSTAT model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -45,7 +45,7 @@ public class TbfTKLAWSTAT {
 	}
 
 	public static boolean update(TboTKLAWSTAT model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -63,7 +63,7 @@ public class TbfTKLAWSTAT {
 	}
 
 	public static boolean delete(TboTKLAWSTAT model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -82,7 +82,7 @@ public class TbfTKLAWSTAT {
 	}
 
 	public static boolean find(TboTKLAWSTAT model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

@@ -204,7 +204,7 @@ public class FrmComp extends FWinMenu {
 		boolean newrec = true;
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -268,7 +268,7 @@ public class FrmComp extends FWinMenu {
 	public void doOnClick_Delete() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				TboFCOMP comp = new TboFCOMP();

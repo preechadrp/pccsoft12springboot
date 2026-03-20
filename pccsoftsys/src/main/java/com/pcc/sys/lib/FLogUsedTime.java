@@ -84,7 +84,7 @@ public class FLogUsedTime implements AutoCloseable {
 					+ ", USER_ID, COMP_CDE, LOG_REMARK)"
 					+ " VALUES(?,?,?,?,?,?,?,?)";
 
-			try (FDbc dbc = FDbc.connectMasterDb();
+			try (FDbc dbc = new FDbc();
 					java.sql.PreparedStatement ps = dbc.getPreparedStatement(sql_insert);) {
 
 				ps.setTimestamp(1, new java.sql.Timestamp(startTime));// INSDTE
@@ -116,7 +116,7 @@ public class FLogUsedTime implements AutoCloseable {
 
 		String sql_update = " update logusetime set USETIME=? ,LOG_STATUS=? where INSDTE=? and MENU_ID=? ";
 
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.PreparedStatement ps = dbc.getPreparedStatement(sql_update);) {
 
 			ps.setLong(1, elapsed); // USETIME เวลา

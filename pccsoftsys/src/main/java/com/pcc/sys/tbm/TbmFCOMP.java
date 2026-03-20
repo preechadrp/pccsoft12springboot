@@ -22,7 +22,7 @@ public class TbmFCOMP {
 			throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = " select * from " + TboFCOMP.tablename;
 			sql += " where 1=1 ";
 			if (not_in_list_fcomp_table != null) {
@@ -54,7 +54,7 @@ public class TbmFCOMP {
 	 * @throws Exception
 	 */
 	public static java.sql.Date getGldate(String comp_cde, java.sql.Date fDate) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getGldate(dbc, comp_cde, fDate);
 		}
 	}
@@ -107,7 +107,7 @@ public class TbmFCOMP {
 	 */
 	public static void get_DDMM_CloseY(String compid, int close_yy, int[] ret_dd, int[] ret_mm)
 			throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			get_DDMM_CloseY(dbc, compid, close_yy, ret_dd, ret_mm);
 		}
 	}

@@ -20,7 +20,7 @@ public class ManAcVatReceiveCancel {
 
 	public static void saveCancel(LoginBean loginBean, String vou_type, String vou_no) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			TboACGL_HEADER header = new TboACGL_HEADER();

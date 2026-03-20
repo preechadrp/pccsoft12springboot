@@ -12,7 +12,7 @@ import com.pcc.sys.tbo.TboFPARA_COMP;
 public class TbmFPARA_COMP {
 
 	public static String getString(String comp_cde, String para_id) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getString(dbc, comp_cde, para_id);
 		}
 	}
@@ -29,7 +29,7 @@ public class TbmFPARA_COMP {
 	}
 
 	public static String getStringWithException(String comp_cde, String para_id) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getStringWithException(dbc, comp_cde, para_id);
 		}
 	}
@@ -52,7 +52,7 @@ public class TbmFPARA_COMP {
 
 	public static BigDecimal getBigDecimal(String comp_cde, String para_id) throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getBigDecimal(dbc, comp_cde, para_id);
 		}
 
@@ -78,7 +78,7 @@ public class TbmFPARA_COMP {
 	public static BigDecimal getBigDecimalWithException(String comp_cde, String para_id)
 			throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getBigDecimalWithException(dbc, comp_cde, para_id);
 		}
 
@@ -103,7 +103,7 @@ public class TbmFPARA_COMP {
 	}
 
 	public static java.sql.Date getSqlDate(String comp_cde, String para_id) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getSqlDate(dbc, comp_cde, para_id);
 		}
 
@@ -148,7 +148,7 @@ public class TbmFPARA_COMP {
 	}
 
 	public static java.sql.Date getSqlDateWithException(String comp_cde, String para_id) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getSqlDateWithException(dbc, comp_cde, para_id);
 		}
 
@@ -196,7 +196,7 @@ public class TbmFPARA_COMP {
 	}
 
 	public static TboFPARA_COMP getRecord(String comp_cde, String para_id) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getRecord(dbc, comp_cde, para_id);
 		}
 	}

@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFCOMPBRANC;
 
 public class TbfFCOMPBRANC {
 	public static boolean insert(TboFCOMPBRANC model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFCOMPBRANC {
 	}
 
 	public static boolean update(TboFCOMPBRANC model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFCOMPBRANC {
 	}
 
 	public static boolean update(TboFCOMPBRANC model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfFCOMPBRANC {
 	}
 
 	public static boolean delete(TboFCOMPBRANC model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -83,7 +83,7 @@ public class TbfFCOMPBRANC {
 	}
 
 	public static boolean find(TboFCOMPBRANC model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

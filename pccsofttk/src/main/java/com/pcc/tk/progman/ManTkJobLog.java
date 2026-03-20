@@ -11,7 +11,7 @@ public class ManTkJobLog {
 
 	public static void getDataByJobno(String comp_cde, String jobno, List<FModelHasMap> lst_data) throws Exception {
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			String sql = """
 					select aa.*,bb.JOBSTATNAME
 					from tkjoblog aa
@@ -34,7 +34,7 @@ public class ManTkJobLog {
 	
 	public static void getJobExpenses(String comp_cde, String jobno, List<FModelHasMap> lst_data) throws Exception {
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			String sql = """
 					select aa.*,bb.EXPENSESNAME  
 					from tkjobexpenses aa
@@ -59,7 +59,7 @@ public class ManTkJobLog {
 
 		BigDecimal[] ret = { BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO  };
 
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			String sql = """
 					select sum(aa.EXPENSESAMT) as EXPENSESAMT ,  sum(aa.WITHDRAWAL_AMT) as WITHDRAWAL_AMT
 					,  sum(aa.EXPCOM_ADV) as EXPCOM_ADV

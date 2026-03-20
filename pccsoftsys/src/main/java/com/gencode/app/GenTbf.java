@@ -221,7 +221,7 @@ public class GenTbf {
 
 			//==== public static boolean insert(..)
 			sb.append("public static boolean insert(Tbo" + (String) hashMap.get("@tableName") + " model) throws SQLException, Exception{");
-			sb.append("   try (FDbc dbc = FDbc.connectMasterDb()) {");
+			sb.append("   try (FDbc dbc = new FDbc()) {");
 			sb.append("      return insert(dbc, model);");
 			sb.append("   }");
 			sb.append("}");
@@ -241,7 +241,7 @@ public class GenTbf {
 			
 			//===== public static boolean update(..) no fixwhere
 			sb.append(" public static boolean update(Tbo" + (String) hashMap.get("@tableName") + " model) throws SQLException, Exception{");
-			sb.append("   try (FDbc dbc = FDbc.connectMasterDb()) {");
+			sb.append("   try (FDbc dbc = new FDbc()) {");
 			sb.append("      return update(dbc, model);");
 			sb.append("   }");
 			sb.append(" }");
@@ -261,7 +261,7 @@ public class GenTbf {
 
 			//===== public static boolean update(..)
 			sb.append(" public static boolean update(Tbo" + (String) hashMap.get("@tableName") + " model,String fixWhere) throws SQLException, Exception{");
-			sb.append("   try (FDbc dbc = FDbc.connectMasterDb()) {");
+			sb.append("   try (FDbc dbc = new FDbc()) {");
 			sb.append("      return update(dbc, model,fixWhere);");
 			sb.append("   }");
 			sb.append(" }");
@@ -281,7 +281,7 @@ public class GenTbf {
 
 			//==== public static boolean delete(..)
 			sb.append(" public static boolean delete(Tbo" + (String) hashMap.get("@tableName") + " model) throws SQLException, Exception{");
-			sb.append("   try (FDbc dbc = FDbc.connectMasterDb()) {");
+			sb.append("   try (FDbc dbc = new FDbc()) {");
 			sb.append("     return delete(dbc, model);");
 			sb.append("   }");
 			sb.append(" }");
@@ -314,7 +314,7 @@ public class GenTbf {
 
 			//==== public static boolean find(..)
 			sb.append(" public static boolean find(Tbo" + (String) hashMap.get("@tableName") + " model) throws SQLException, Exception {");
-			sb.append("   try (FDbc dbc = FDbc.connectMasterDb()) {");
+			sb.append("   try (FDbc dbc = new FDbc()) {");
 			sb.append("      return find(dbc,model);");
 			sb.append("   } ");
 			sb.append("} ");

@@ -11,7 +11,7 @@ public class TbmFCOMPBRANC {
 
 	public static int getMaxBranc(String comp_cde) throws Exception {
 		int ret = 0;
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			String sql1 = " SELECT max(aa.BRANC_CDE) AS F1 FROM fcompbranc aa WHERE aa.COMP_CDE=? ";
 			try (ResultSet rs = dbc.getResultSet2(sql1, comp_cde);) {
@@ -33,7 +33,7 @@ public class TbmFCOMPBRANC {
 	public static int getBranc(String comp_cde, java.util.List<TboFCOMPBRANC> lst_data) throws Exception {
 		int ret = 0;
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			String sql1 = " SELECT aa.* FROM fcompbranc aa WHERE aa.COMP_CDE=? ";
 			try (ResultSet rs = dbc.getResultSet2(sql1, comp_cde);) {
@@ -54,7 +54,7 @@ public class TbmFCOMPBRANC {
 	}
 
 	public static TboFCOMPBRANC getBranc(String comp_cde, int branc_cde) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getBranc(dbc, comp_cde, branc_cde);
 		}
 	}
@@ -77,7 +77,7 @@ public class TbmFCOMPBRANC {
 	
 	public static String getBrancAddressNoZipCode(String comp_cde, int branc_cde) throws Exception {
 		String ret = "";
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			
 			TboFCOMPBRANC branc = getBranc(dbc, comp_cde, branc_cde);
 			if (branc != null) {

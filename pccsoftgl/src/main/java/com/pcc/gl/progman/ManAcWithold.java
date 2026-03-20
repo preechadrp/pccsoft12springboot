@@ -86,7 +86,7 @@ public class ManAcWithold {
 
 		System.out.println("genTextFileTyp3");
 		
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.ResultSet rs = getData(dbc, _loginBean, requestpara);) {
 
 			List<String> textList = new ArrayList<String>();
@@ -202,7 +202,7 @@ public class ManAcWithold {
 
 		System.out.println("genTextFileTyp53");
 
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.ResultSet rs = getData(dbc, _loginBean, requestpara);) {
 
 			List<String> textList = new ArrayList<String>();
@@ -386,7 +386,7 @@ public class ManAcWithold {
 			reportParams.put("TEL1", Fnc.getStr(fcompbranc.getTELNO()));
 		}
 
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 
 			java.util.List<FModelHasMap> list_dat = new ArrayList<FModelHasMap>();
 

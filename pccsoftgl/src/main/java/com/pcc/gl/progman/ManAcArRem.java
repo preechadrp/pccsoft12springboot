@@ -38,7 +38,7 @@ public class ManAcArRem {
 	public static void getReport(LoginBean _loginBean, java.sql.Date toPostdate, String cust_cde, String fromAcctid,
 			FJasperPrintList fJasperPrintList, int print_option) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			Map reportParams = new HashMap();
 			reportParams.put("reportName", "รายงานลูกหนี้คงเหลือรายตัว");

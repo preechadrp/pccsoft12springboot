@@ -10,7 +10,7 @@ import com.pcc.sys.lib.Fnc;
 
 public class TbfACGL_VATSALE {
 	public static boolean insert(TboACGL_VATSALE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfACGL_VATSALE {
 	}
 
 	public static boolean update(TboACGL_VATSALE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfACGL_VATSALE {
 	}
 
 	public static boolean update(TboACGL_VATSALE model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfACGL_VATSALE {
 	}
 
 	public static boolean delete(TboACGL_VATSALE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -86,7 +86,7 @@ public class TbfACGL_VATSALE {
 	}
 
 	public static boolean find(TboACGL_VATSALE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

@@ -150,7 +150,7 @@ public class FMainMn extends FWindow {
 	}
 
 	public void setDbName() {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			
 			String dbname = dbc.getDbName();
 			String showDesc = FConfig.getConfig2("ShowDesc");

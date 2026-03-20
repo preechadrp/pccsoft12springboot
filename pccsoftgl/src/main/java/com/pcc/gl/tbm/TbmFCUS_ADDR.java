@@ -18,7 +18,7 @@ public class TbmFCUS_ADDR {
 	 */
 	public static String custAddress1(String comp_cde, String cust_cde, String addr_typ, boolean withZipcode)
 			throws Exception {
-		try(FDbc dbc = FDbc.connectMasterDb()){
+		try(FDbc dbc = new FDbc()){
 			return custAddress1(dbc, comp_cde, cust_cde, addr_typ, withZipcode);
 		}
 	}

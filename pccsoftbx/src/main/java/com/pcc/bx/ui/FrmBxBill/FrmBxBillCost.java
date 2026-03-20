@@ -137,7 +137,7 @@ public class FrmBxBillCost extends FWindow {
 	}
 	
 	private void read_record(String blno) throws WrongValueException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			read_record(dbc, blno);
 		}
 	}
@@ -176,7 +176,7 @@ public class FrmBxBillCost extends FWindow {
 
 		boolean[] clearWhenError = { false };
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			
 			if (!Fnc.isEmpty(txtCUST_CDE_AP.getValue()) && Fnc.isEmpty(txtAPNAME.getValue())) {
 				throw new Exception(txtCUST_CDE_AP.getTooltiptext() + " ไม่ถูกต้อง");

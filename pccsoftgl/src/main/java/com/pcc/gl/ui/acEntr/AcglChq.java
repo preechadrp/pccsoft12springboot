@@ -89,7 +89,7 @@ public class AcglChq extends FWinUtil {
 
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();

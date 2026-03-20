@@ -412,7 +412,7 @@ public class FrmTkJobEntr extends FWindow {
 	}
 
 	public void doOnClick_btnAdd() {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			TboTKJOB table1 = new TboTKJOB();
@@ -737,7 +737,7 @@ public class FrmTkJobEntr extends FWindow {
 
 			validateData();
 
-			try (FDbc dbc = FDbc.connectMasterDb();) {
+			try (FDbc dbc = new FDbc();) {
 				TboTKJOB table1 = saveHeader(dbc);
 				table1.setJOBSTAT("1");
 				TbfTKJOB.update(dbc, table1);
@@ -817,7 +817,7 @@ public class FrmTkJobEntr extends FWindow {
 				throw new Exception("ต้องระบุ" + txtCLIENTFNAME.getTooltiptext());
 			}
 
-			try (FDbc dbc = FDbc.connectMasterDb();) {
+			try (FDbc dbc = new FDbc();) {
 
 				saveHeader(dbc);
 
@@ -1035,7 +1035,7 @@ public class FrmTkJobEntr extends FWindow {
 				throw new Exception("ต้องระบุ"+txtLAWYERID.getTooltiptext());
 			}
 			
-			try(FDbc dbc = FDbc.connectMasterDb()) {
+			try(FDbc dbc = new FDbc()) {
 				saveHeader(dbc);
 				
 				TboTKJOBLAWYER table1 = new TboTKJOBLAWYER();
@@ -1128,7 +1128,7 @@ public class FrmTkJobEntr extends FWindow {
 		Msg.confirm(Labels.getLabel("comm.label.deleteComfirm") + " ?", "?", (event1) -> {
 			if (Messagebox.Button.YES.equals(event1.getButton())) {
 				
-				try(FDbc dbc = FDbc.connectMasterDb()) {
+				try(FDbc dbc = new FDbc()) {
 					dbc.beginTrans();
 				
 					TboTKJOB table1 = new TboTKJOB();

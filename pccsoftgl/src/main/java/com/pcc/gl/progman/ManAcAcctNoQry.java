@@ -20,7 +20,7 @@ public class ManAcAcctNoQry {
 
 		Map reportParams = new HashMap();
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			reportParams.put("compName", _loginBean.getTboFcomp().getCOMP_NAME());
 			reportParams.put("userName", _loginBean.getTboFuser().getTITLE() + " "

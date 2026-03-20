@@ -33,7 +33,7 @@ public class ManAcVatReceiveA {
 			throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select aa.* ,bb.TITLE,bb.FNAME,bb.LNAME");

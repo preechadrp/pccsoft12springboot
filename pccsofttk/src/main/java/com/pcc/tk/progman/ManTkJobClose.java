@@ -13,7 +13,7 @@ public class ManTkJobClose {
 
 		lst_data.clear();
 		
-		try (var dbc = FDbc.connectMasterDb()) {
+		try (var dbc = new FDbc()) {
 			
 			SqlStr sql = new SqlStr();
 			sql.addLine("select aa.*,bb.LAWSTATNAME,");

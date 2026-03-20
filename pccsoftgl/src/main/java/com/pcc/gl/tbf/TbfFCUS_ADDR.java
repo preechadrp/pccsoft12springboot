@@ -10,7 +10,7 @@ import com.pcc.sys.lib.Fnc;
 
 public class TbfFCUS_ADDR {
 	public static boolean insert(TboFCUS_ADDR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFCUS_ADDR {
 	}
 
 	public static boolean update(TboFCUS_ADDR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFCUS_ADDR {
 	}
 
 	public static boolean update(TboFCUS_ADDR model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfFCUS_ADDR {
 	}
 
 	public static boolean delete(TboFCUS_ADDR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -84,7 +84,7 @@ public class TbfFCUS_ADDR {
 	}
 
 	public static boolean find(TboFCUS_ADDR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

@@ -186,7 +186,7 @@ public class FrmTkJobCode extends FWinMenu {
 	public void onClick_Save() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -237,7 +237,7 @@ public class FrmTkJobCode extends FWinMenu {
 
 				try {
 
-					try (FDbc dbc = FDbc.connectMasterDb()) {
+					try (FDbc dbc = new FDbc()) {
 						dbc.beginTrans();
 
 						TboTKJOBCODE table1 = new TboTKJOBCODE();

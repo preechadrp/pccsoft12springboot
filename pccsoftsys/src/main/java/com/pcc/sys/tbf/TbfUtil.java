@@ -11,7 +11,7 @@ public class TbfUtil {
 	 * @throws Exception
 	 */
 	public static int executeSql(String sql) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return dbc.executeSql(sql);
 		}
 	}

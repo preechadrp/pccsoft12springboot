@@ -15,7 +15,7 @@ import com.pcc.sys.tbo.TboFPARA_SYS;
 public class TbmFPARA_SYS {
 
 	public static String getString(String para_id) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getString(dbc, para_id);
 		}
 	}
@@ -31,7 +31,7 @@ public class TbmFPARA_SYS {
 	}
 
 	public static String getStringWithException(String para_id) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getStringWithException(dbc, para_id);
 		}
 	}
@@ -51,7 +51,7 @@ public class TbmFPARA_SYS {
 
 	public static BigDecimal getBigDecimal(String para_id) throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getBigDecimal(dbc, para_id);
 		}
 
@@ -74,7 +74,7 @@ public class TbmFPARA_SYS {
 	}
 
 	public static java.sql.Date getSqlDate(String para_id) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getSqlDate(dbc, para_id);
 		}
 	}
@@ -117,7 +117,7 @@ public class TbmFPARA_SYS {
 	}
 
 	public static TboFPARA_SYS getRecord(String para_id) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getRecord(dbc, para_id);
 		}
 	}
@@ -138,7 +138,7 @@ public class TbmFPARA_SYS {
 			LoginBean _loginBean) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select aa.*");

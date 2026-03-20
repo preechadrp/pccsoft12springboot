@@ -10,7 +10,7 @@ import com.pcc.tk.tbo.TboTKJOBDOCS;
 
 public class TbfTKJOBDOCS {
 	public static boolean insert(TboTKJOBDOCS model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfTKJOBDOCS {
 	}
 
 	public static boolean update(TboTKJOBDOCS model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfTKJOBDOCS {
 	}
 
 	public static boolean update(TboTKJOBDOCS model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfTKJOBDOCS {
 	}
 
 	public static boolean delete(TboTKJOBDOCS model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -84,7 +84,7 @@ public class TbfTKJOBDOCS {
 	}
 
 	public static boolean find(TboTKJOBDOCS model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

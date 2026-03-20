@@ -14,7 +14,7 @@ public class TbmBXTMPLDETAIL {
 
 		lst_data.clear();
 
-		try (var dbc = FDbc.connectMasterDb()) {
+		try (var dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine(" select * from bxtmpldetail where COMP_CDE ='" + Fnc.sqlQuote(comp_cde) + "' and TMPLCDE=" + tmplcde + " order by TMPLSEQ ");
@@ -34,7 +34,7 @@ public class TbmBXTMPLDETAIL {
 	
 	public static int getMaxCode(String comp_cde, int tmplcde) throws Exception {
 		int ret = 0;
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = "select max(aa.TMPLSEQ) as F1 from bxtmpldetail aa where aa.COMP_CDE =? and aa.TMPLCDE=? ";
 			try (java.sql.ResultSet rs1 = dbc.getResultSetFw2(sql, comp_cde, tmplcde);) {
 				if (rs1.next()) {

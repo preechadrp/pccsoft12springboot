@@ -37,7 +37,7 @@ public class ManAcCloseY {
 	 */
 	public static void closeAcct(LoginBean _loginBean, String comp_cde, int dd, int mm, int yy) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			java.sql.Date to_date = null;
 			if (FnDate.useThaiDate) {

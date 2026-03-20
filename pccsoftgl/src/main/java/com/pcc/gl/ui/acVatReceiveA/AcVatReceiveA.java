@@ -155,7 +155,7 @@ public class AcVatReceiveA extends FWinMenu {
 
 			String[] vou_type = { "" };
 			String[] vou_no = { "" };
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData(dbc, postdate);

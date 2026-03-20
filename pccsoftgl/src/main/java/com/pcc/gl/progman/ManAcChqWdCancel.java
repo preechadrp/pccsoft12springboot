@@ -17,7 +17,7 @@ public class ManAcChqWdCancel {
 
 	public static void saveCancel(LoginBean loginBean, String vou_type, String vou_no) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			TboACGL_HEADER header = new TboACGL_HEADER();
@@ -82,7 +82,7 @@ public class ManAcChqWdCancel {
 			java.sql.Date postdateFrom, java.sql.Date postdateTo, LoginBean _loginBean) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select * from " + TboACGL_HEADER.tablename);

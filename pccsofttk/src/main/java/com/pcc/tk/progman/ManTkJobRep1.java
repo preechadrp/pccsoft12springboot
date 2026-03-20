@@ -22,7 +22,7 @@ public class ManTkJobRep1 {
 
 	public static void getReport(LoginBean _loginBean, JSONObject requestpara, FJasperPrintList fJasperPrintList) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			Map reportParams = new HashMap();
 

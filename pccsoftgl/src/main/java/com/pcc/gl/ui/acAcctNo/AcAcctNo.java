@@ -136,7 +136,7 @@ public class AcAcctNo extends FWinMenu {
 		boolean newrec = true;
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -188,7 +188,7 @@ public class AcAcctNo extends FWinMenu {
 	public void doOnClick_Delete() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				TboACCT_NO acctno = new TboACCT_NO();

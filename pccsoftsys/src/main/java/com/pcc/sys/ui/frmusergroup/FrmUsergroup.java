@@ -217,7 +217,7 @@ public class FrmUsergroup extends FWinMenu {
 	public void onClick_Save() {
 
 		try {
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -351,7 +351,7 @@ public class FrmUsergroup extends FWinMenu {
 		Msg.confirm(Labels.getLabel("comm.label.deleteComfirm") + " ?", "?", (event1) -> {
 			if (Messagebox.Button.YES.equals(event1.getButton())) {
 				try {
-					try (FDbc dbc = FDbc.connectMasterDb()) {
+					try (FDbc dbc = new FDbc()) {
 						dbc.beginTrans();
 
 						TboFMENU_GROUP_H fh = new TboFMENU_GROUP_H();

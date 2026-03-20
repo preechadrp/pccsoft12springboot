@@ -154,7 +154,7 @@ public class AcApprv extends FWinMenu {
 			String sVOU_TYPE = Fnc.getStr(row.getAttribute("VOU_TYPE"));
 			String sVOU_NO = Fnc.getStr(row.getAttribute("VOU_NO"));
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				TboACGL_HEADER acgl_header = new TboACGL_HEADER();

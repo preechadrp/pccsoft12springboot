@@ -41,7 +41,7 @@ public class ManAcGlAcSpec {
 			java.sql.Date toPostdate, FJasperPrintList fJasperPrintList, int print_option) throws Exception {
 
 		Map reportParams = new HashMap();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			java.sql.Date glFrmDate = TbmFCOMP.getGldate(_loginBean.getCOMP_CDE(), fromPostdate);
 

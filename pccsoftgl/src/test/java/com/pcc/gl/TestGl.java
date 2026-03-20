@@ -40,7 +40,7 @@ public class TestGl {
 
 		//FConfig.setLog4jForAppConsole();
 
-		try (FDbc dbc = FDbc.connectByConsole();) {
+		try (FDbc dbc = new FDbc();) {
 
 			UtilComm.setLoginBeanForApp(dbc, _loginBean);
 
@@ -99,7 +99,7 @@ public class TestGl {
 
 		//FConfig.setLog4jForAppConsole();
 
-		try (FDbc dbc = FDbc.connectByConsole();) {
+		try (FDbc dbc = new FDbc("db1");) {
 
 			UtilComm.setLoginBeanForApp(dbc, _loginBean);
 

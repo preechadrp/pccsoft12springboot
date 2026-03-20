@@ -63,7 +63,7 @@ public class FrmChgpass extends FWindow {
 	public void onClick_btnOk() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 
 				if (!TbfFUSER.find(dbc, loginBean.getTboFuser())) {
 					throw new Exception("ไม่พบ User นี้กรุณาตรวจสอบ");

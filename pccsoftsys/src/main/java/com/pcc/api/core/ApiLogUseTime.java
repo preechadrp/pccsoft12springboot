@@ -68,7 +68,7 @@ public class ApiLogUseTime implements AutoCloseable {
 
 		//if (elapsed >= 2) {//test
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			//17/12/67  firebirdsql ต้องใส่ into  หลังคำสั่ง insert ลักษณะนี้
 			String sqlInsert = "insert into apilogusetime(INSDTE,USETIME,MENU_ID2,MENU_THAI_NAME,USER_ID,COMP_CDE,REQUESTDESC,LOG_STATUS)"
 					+ "values(?,?,?,?,?,?,?,?)";
@@ -99,7 +99,7 @@ public class ApiLogUseTime implements AutoCloseable {
 
 		String sql_update = " update apilogusetime set USETIME=? ,LOG_STATUS=? where INSDTE=? and MENU_ID2=? ";
 
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.PreparedStatement ps = dbc.getPreparedStatement(sql_update);) {
 
 			ps.setLong(1, elapsed); // USETIME เวลา

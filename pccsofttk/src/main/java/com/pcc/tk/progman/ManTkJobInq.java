@@ -29,7 +29,7 @@ public class ManTkJobInq {
 
 		lst_data.clear();
 
-		try (var dbc = FDbc.connectMasterDb()) {
+		try (var dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select aa.*,bb.LAWSTATNAME,");
@@ -165,7 +165,7 @@ public class ManTkJobInq {
 
 	public static void printData(String jobno, LoginBean loginBean, FJasperPrintList fJasperPrintList) throws Exception {
 
-		try (var dbc = FDbc.connectMasterDb()) {
+		try (var dbc = new FDbc()) {
 			TboTKJOB tkjob = new TboTKJOB();
 
 			tkjob.setCOMP_CDE(loginBean.getCOMP_CDE());

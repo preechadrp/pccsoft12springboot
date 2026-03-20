@@ -28,7 +28,7 @@ public class ManLogin {
 	}
 
 	public static void saveLogin(LoginBean loginBean) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 			saveLogin(dbc, loginBean);
 			dbc.commit();

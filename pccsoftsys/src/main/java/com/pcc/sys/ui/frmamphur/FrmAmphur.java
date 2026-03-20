@@ -140,7 +140,7 @@ public class FrmAmphur extends FWinMenu {
 		boolean newrec = true;
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();

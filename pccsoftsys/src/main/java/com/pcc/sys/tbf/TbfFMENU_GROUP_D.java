@@ -11,7 +11,7 @@ import com.pcc.sys.tbo.TboFMENU_GROUP_D;
 public class TbfFMENU_GROUP_D {
 
 	public static boolean insert(TboFMENU_GROUP_D model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -29,7 +29,7 @@ public class TbfFMENU_GROUP_D {
 	}
 
 	public static boolean update(TboFMENU_GROUP_D model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -47,7 +47,7 @@ public class TbfFMENU_GROUP_D {
 	}
 
 	public static boolean update(TboFMENU_GROUP_D model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -65,7 +65,7 @@ public class TbfFMENU_GROUP_D {
 	}
 
 	public static boolean delete(TboFMENU_GROUP_D model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -84,7 +84,7 @@ public class TbfFMENU_GROUP_D {
 	}
 
 	public static boolean find(TboFMENU_GROUP_D model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

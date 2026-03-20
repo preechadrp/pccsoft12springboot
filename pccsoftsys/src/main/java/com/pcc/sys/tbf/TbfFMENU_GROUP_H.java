@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFMENU_GROUP_H;
 
 public class TbfFMENU_GROUP_H {
 	public static boolean insert(TboFMENU_GROUP_H model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFMENU_GROUP_H {
 	}
 
 	public static boolean update(TboFMENU_GROUP_H model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFMENU_GROUP_H {
 	}
 
 	public static boolean delete(TboFMENU_GROUP_H model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfFMENU_GROUP_H {
 	}
 
 	public static boolean find(TboFMENU_GROUP_H model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

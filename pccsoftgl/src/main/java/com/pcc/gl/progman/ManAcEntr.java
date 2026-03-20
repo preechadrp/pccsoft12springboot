@@ -82,7 +82,7 @@ public class ManAcEntr {
 	public static void printVoucher(LoginBean _loginBean, String sVou_type, String sVou_no) throws Exception {
 
 		FJasperPrintList fJasperPrintList = new FJasperPrintList();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			printVoucher(dbc, _loginBean, sVou_type, sVou_no, fJasperPrintList);
 		}
 		if (fJasperPrintList.getJasperPrintLst().size() > 0) {
@@ -455,7 +455,7 @@ public class ManAcEntr {
 	 */
 	public static boolean isSUB_HAS(TboACGL_DETAIL detail, LoginBean loginBean) throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			int[] acct_type = { 0 };
 			return isSUB_HAS(dbc, detail, loginBean, acct_type);
 		}
@@ -498,7 +498,7 @@ public class ManAcEntr {
 	public static boolean isSUB_HAS(TboACGL_DETAIL detail, LoginBean loginBean, int[] acct_type)
 			throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return isSUB_HAS(dbc, detail, loginBean, acct_type);
 		}
 
@@ -1063,7 +1063,7 @@ public class ManAcEntr {
 	public static void findAp(String cust_cde, String docno, Date postdate_from, Date postdate_to, String vou_type,
 			String vou_no, List<FModelHasMap> lst_find, LoginBean loginBean) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			lst_find.clear();
 
@@ -1115,7 +1115,7 @@ public class ManAcEntr {
 	public static void addPayAp(List<FModelHasMap> lst_select, TboACGL_HEADER acgl_header, LoginBean loginBean)
 			throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			dbc.beginTrans();
 
@@ -1313,7 +1313,7 @@ public class ManAcEntr {
 	public static void findAr(String cust_cde, String docno, Date postdate_from, Date postdate_to, String vou_type,
 			String vou_no, List<FModelHasMap> lst_find, LoginBean loginBean) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			lst_find.clear();
 
 			SqlStr sql = new SqlStr();
@@ -1364,7 +1364,7 @@ public class ManAcEntr {
 	public static void addPayAr(List<FModelHasMap> lst_select, TboACGL_HEADER acgl_header, LoginBean loginBean)
 			throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			if (lst_select.size() == 0) {

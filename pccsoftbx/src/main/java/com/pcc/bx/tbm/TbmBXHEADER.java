@@ -15,7 +15,7 @@ public class TbmBXHEADER {
 
 		lst_data.clear();
 
-		try (var dbc = FDbc.connectMasterDb()) {
+		try (var dbc = new FDbc()) {
 			
 			SqlStr sql = new SqlStr();
 			sql.addLine("SELECT * FROM bxheader ");
@@ -66,7 +66,7 @@ public class TbmBXHEADER {
 	
 //	public static int getMaxCode(String comp_cde) throws Exception {
 //		int ret = 0;
-//		try (FDbc dbc = FDbc.connectMasterDb()) {
+//		try (FDbc dbc = new FDbc()) {
 //			String sql = "select max(aa.TMPLCDE) as F1 from bxtmplhead aa where aa.COMP_CDE =?";
 //			try (java.sql.ResultSet rs1 = dbc.getResultSetFw2(sql, comp_cde);) {
 //				if (rs1.next()) {

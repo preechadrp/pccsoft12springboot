@@ -9,7 +9,7 @@ public class TbmTKIMGS {
 		int ret = 0;
 		
 		String sql = " select max(IMGSEQ) as F1 from tkimgs where COMP_CDE=? and SYS_CDE=? ";
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.ResultSet rs = dbc.getResultSetFw2(sql, comp_cde, sys_cde)) {
 			
 			while (rs.next()) {

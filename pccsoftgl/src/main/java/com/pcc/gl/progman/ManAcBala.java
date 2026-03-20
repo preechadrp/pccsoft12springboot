@@ -42,7 +42,7 @@ public class ManAcBala {
 	public static void getReport(LoginBean _loginBean, java.sql.Date toPostdate, FJasperPrintList fJasperPrintList,
 			int print_option) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			Map reportParams = new HashMap();
 			reportParams.put("reportName", "รายงานงบดุล");
@@ -552,7 +552,7 @@ public class ManAcBala {
 	public static void getTestReport(LoginBean _loginBean, java.sql.Date toPostdate, FJasperPrintList fJasperPrintList,
 			int print_option) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			// TEST OK by preecha
 			Map reportParams = new HashMap();
 			reportParams.put("reportName", "รายงานงานทดสอบ");

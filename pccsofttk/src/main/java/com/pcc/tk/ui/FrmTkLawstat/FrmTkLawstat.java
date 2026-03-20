@@ -185,7 +185,7 @@ public class FrmTkLawstat extends FWinMenu {
 	public void onClick_Save() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validateData();
@@ -237,7 +237,7 @@ public class FrmTkLawstat extends FWinMenu {
 	public void doOnClick_Delete() {
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				TboTKLAWSTAT table1 = new TboTKLAWSTAT();

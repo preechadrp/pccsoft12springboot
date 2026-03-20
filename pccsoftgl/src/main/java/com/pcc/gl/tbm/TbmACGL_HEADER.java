@@ -14,7 +14,7 @@ public class TbmACGL_HEADER {
 			throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select * from " + TboACGL_HEADER.tablename);
@@ -58,7 +58,7 @@ public class TbmACGL_HEADER {
 			throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			SqlStr sql = new SqlStr();
 			sql.addLine("select * from " + TboACGL_HEADER.tablename);
 			sql.addLine(" where 1=1 ");
@@ -103,7 +103,7 @@ public class TbmACGL_HEADER {
 			throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			SqlStr sql = new SqlStr();
 			sql.addLine("select * from " + TboACGL_HEADER.tablename);
 			sql.addLine(" where 1=1 ");

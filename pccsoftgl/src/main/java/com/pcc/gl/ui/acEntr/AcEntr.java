@@ -232,7 +232,7 @@ public class AcEntr extends FWinMenu {
 
 		// == ต้องตรวจสอบด้วย check_record ก่อนเสมอ
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			// == update acgl_header.RECSTA = 0
@@ -331,7 +331,7 @@ public class AcEntr extends FWinMenu {
 
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				// == validate
@@ -419,7 +419,7 @@ public class AcEntr extends FWinMenu {
 		boolean[] clear_on_error = { false };
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				check_record(dbc, txtVOU_NO.getValue(), clear_on_error);
@@ -448,7 +448,7 @@ public class AcEntr extends FWinMenu {
 
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validate_beforeNewRecord(dbc);
@@ -517,7 +517,7 @@ public class AcEntr extends FWinMenu {
 
 			TboACGL_DETAIL detail = null;
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				validate_beforeSaveDetail(dbc);
@@ -783,7 +783,7 @@ public class AcEntr extends FWinMenu {
 
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 
 				clearDetailBox();
 
@@ -862,7 +862,7 @@ public class AcEntr extends FWinMenu {
 
 		try {
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				dbc.beginTrans();
 
 				Row row = (Row) event.getTarget().getParent();
@@ -1172,7 +1172,7 @@ public class AcEntr extends FWinMenu {
 	}
 
 	public boolean check_record(String vou_no) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return check_record(dbc, vou_no, null);
 		}
 	}

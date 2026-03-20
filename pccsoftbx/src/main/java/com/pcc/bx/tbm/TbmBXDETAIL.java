@@ -12,7 +12,7 @@ public class TbmBXDETAIL {
 
 		lst_bxdetail.clear();
 		String sql = "select * from bxdetail where COMP_CDE =? and BLNO =? order by BLNO ,SEQ1 ";
-		try (FDbc dbc = FDbc.connectMasterDb();
+		try (FDbc dbc = new FDbc();
 				java.sql.ResultSet rs = dbc.getResultSetFw2(sql, comp_cde, blno);) {
 			
 			while (rs.next()) {

@@ -19,7 +19,7 @@ public class ManAcApClear {
 			LoginBean loginBean) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select ");
@@ -61,7 +61,7 @@ public class ManAcApClear {
 			throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select ");

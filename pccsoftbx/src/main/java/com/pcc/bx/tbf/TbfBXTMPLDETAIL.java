@@ -10,7 +10,7 @@ import com.pcc.sys.lib.Fnc;
 
 public class TbfBXTMPLDETAIL {
 	public static boolean insert(TboBXTMPLDETAIL model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfBXTMPLDETAIL {
 	}
 
 	public static boolean update(TboBXTMPLDETAIL model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfBXTMPLDETAIL {
 	}
 
 	public static boolean update(TboBXTMPLDETAIL model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfBXTMPLDETAIL {
 	}
 
 	public static boolean delete(TboBXTMPLDETAIL model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -84,7 +84,7 @@ public class TbfBXTMPLDETAIL {
 	}
 
 	public static boolean find(TboBXTMPLDETAIL model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

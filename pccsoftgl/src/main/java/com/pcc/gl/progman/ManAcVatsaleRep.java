@@ -40,7 +40,7 @@ public class ManAcVatsaleRep {
 	public static void getReport(LoginBean _loginBean, java.sql.Date fromPostdate, java.sql.Date toPostdate,
 			FJasperPrintList fJasperPrintList, int print_option) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			Map reportParams = new HashMap();
 			reportParams.put("reportName", "รายงานภาษีขาย");

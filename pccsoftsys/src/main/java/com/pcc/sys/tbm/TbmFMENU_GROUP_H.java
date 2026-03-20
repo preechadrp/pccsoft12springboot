@@ -12,7 +12,7 @@ public class TbmFMENU_GROUP_H {
 	public static void getData(java.util.List<FModelHasMap> dats, String user_menu_group, String thai_name) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = " select * from " + TboFMENU_GROUP_H.tablename;
 			sql += " where 1=1 ";
 			if (!Fnc.isEmpty(user_menu_group)) {
@@ -44,7 +44,7 @@ public class TbmFMENU_GROUP_H {
 	public static void getDataNotIn(java.util.List<FModelHasMap> dats, java.util.List<TboFMENU_GROUP_H> list_fmenu_group_h_table) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = " select * from " + TboFMENU_GROUP_H.tablename;
 			sql += " where 1=1 ";
 			java.util.List<String> ls1 = new ArrayList<>();

@@ -10,7 +10,7 @@ import com.pcc.sys.lib.Fnc;
 
 public class TbfACGL_VATWH_CR {
 	public static boolean insert(TboACGL_VATWH_CR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfACGL_VATWH_CR {
 	}
 
 	public static boolean update(TboACGL_VATWH_CR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfACGL_VATWH_CR {
 	}
 
 	public static boolean update(TboACGL_VATWH_CR model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -64,7 +64,7 @@ public class TbfACGL_VATWH_CR {
 	}
 
 	public static boolean delete(TboACGL_VATWH_CR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -86,7 +86,7 @@ public class TbfACGL_VATWH_CR {
 	}
 
 	public static boolean find(TboACGL_VATWH_CR model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

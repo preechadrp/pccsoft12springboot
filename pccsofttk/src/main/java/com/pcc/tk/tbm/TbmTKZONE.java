@@ -8,7 +8,7 @@ public class TbmTKZONE {
 
 	public static int getMaxCode(String comp_cde) throws Exception {
 		int ret = 0;
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = "select max(aa.ZONEID) as F1 from tkzone aa where aa.COMP_CDE =?";
 			try (java.sql.ResultSet rs1 = dbc.getResultSetFw2(sql, comp_cde);) {
 				if (rs1.next()) {

@@ -298,7 +298,7 @@ public class ApiUtil {
 			//=====ค้นหา user
 			LoginBean _loginBean = new LoginBean();
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				var fcomp = new TboFCOMP();
 				fcomp.setCOMP_CDE(comp_cde);
 				if (!TbfFCOMP.find(dbc, fcomp)) {

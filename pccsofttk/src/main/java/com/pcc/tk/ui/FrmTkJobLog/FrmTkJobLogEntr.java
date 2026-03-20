@@ -639,7 +639,7 @@ public class FrmTkJobLogEntr extends FWindow {
 				throw new Exception("ต้องระบุ" + txtJOBSTATID.getTooltiptext());
 			}
 
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 
 				TboTKJOBLOG joblog = new TboTKJOBLOG();
 
@@ -841,7 +841,7 @@ public class FrmTkJobLogEntr extends FWindow {
 				throw new Exception("ระบุ" + decEXPCOM_ADV.getTooltiptext()+ " ไม่ถูกต้อง" );
 			}
 			
-			try (var dbc = FDbc.connectMasterDb()) {
+			try (var dbc = new FDbc()) {
 
 				var jobExp = new TboTKJOBEXPENSES();
 

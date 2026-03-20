@@ -291,7 +291,7 @@ public class FSearchPopup extends FWinUtil {
 			System.out.println("sql : " + sql.getSql());
 
 			dataSet.clear();
-			try (FDbc dbc = FDbc.connectMasterDb()) {
+			try (FDbc dbc = new FDbc()) {
 				try (java.sql.ResultSet rs = dbc.getResultSet3(sql.getSql(), fSearchData.getShowLimitRow());) {
 					while (rs.next()) {
 

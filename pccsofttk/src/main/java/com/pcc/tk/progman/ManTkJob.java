@@ -11,7 +11,7 @@ public class ManTkJob {
 
 	public static void getDataByJobno(String comp_cde, String jobno, List<FModelHasMap> lst_data) throws Exception {
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			String sql = """
 					select aa.*,bb.LAWYERNAME  
 					from tkjoblawyer aa 
@@ -31,7 +31,7 @@ public class ManTkJob {
 	
 	public static void getTkjobdocdesc(String comp_cde, List<String> lst_data) throws Exception {
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			String sql = """
 					select DOCDESC from tkjobdocdesc where COMP_CDE=? and SYS_CDE=? order by DOCDESC
 					""";
@@ -45,7 +45,7 @@ public class ManTkJob {
 	
 	public static void getTkFindDocdesc(String comp_cde, FModelHasMap para, List<FModelHasMap> lst_data) throws Exception {
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			SqlStr sql = new SqlStr();
 			sql.addLine("select aa.DOCDESC from tkjobdocdesc aa where 1=1 ");
 			sql.addLine("and aa.COMP_CDE= '"+ Fnc.sqlQuote(comp_cde)  +"' ");
@@ -66,7 +66,7 @@ public class ManTkJob {
 	}
 	
 	public static void getTkDelDocdesc(String comp_cde, String del_DOCDESC) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			SqlStr sql = new SqlStr();
 			sql.addLine(" DELETE FROM tkjobdocdesc WHERE comp_cde=? AND sys_cde=? AND docdesc=? ");
 			dbc.executeSql2(sql.getSql(), comp_cde, "FrmTkJobDoc", del_DOCDESC);

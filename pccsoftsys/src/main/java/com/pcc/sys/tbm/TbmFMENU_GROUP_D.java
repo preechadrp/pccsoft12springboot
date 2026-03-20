@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFMENU_GROUP_H;
 public class TbmFMENU_GROUP_D {
 
 	public static void getData(String userGroup, List<FModelHasMap> dats) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = "SELECT * FROM fmenu_group_d WHERE USER_MENU_GROUP='" + userGroup + "' ORDER BY key1 DESC ";
 			System.out.println(sql);
 			try (java.sql.ResultSet rs = dbc.getResultSet(sql);) {

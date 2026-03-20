@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFRUNNING;
 
 public class TbfFRUNNING {
 	public static boolean insert(TboFRUNNING model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFRUNNING {
 	}
 
 	public static boolean update(TboFRUNNING model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFRUNNING {
 	}
 
 	public static boolean delete(TboFRUNNING model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -66,7 +66,7 @@ public class TbfFRUNNING {
 	}
 
 	public static boolean find(TboFRUNNING model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

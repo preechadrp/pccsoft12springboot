@@ -13,7 +13,7 @@ public class TbmFUSER {
 	public static void getData(java.util.List<FModelHasMap> dats, String usercode, String firstname, String lastname) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql = " select * from " + TboFUSER.tablename;
 			sql += " where 1=1 ";
 			if (!Fnc.isEmpty(usercode)) {

@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFCALLMENULOG;
 
 public class TbfFCALLMENULOG {
 	public static boolean insert(TboFCALLMENULOG model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFCALLMENULOG {
 	}
 
 	public static boolean update(TboFCALLMENULOG model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFCALLMENULOG {
 	}
 
 	public static boolean delete(TboFCALLMENULOG model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -65,7 +65,7 @@ public class TbfFCALLMENULOG {
 	}
 
 	public static boolean find(TboFCALLMENULOG model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

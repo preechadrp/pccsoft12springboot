@@ -52,7 +52,7 @@ public class ManAcVatwhCrPrint {
 			LoginBean _loginBean) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			// from acgl_vatwh_cr ภาษีหัก ณ ที่จ่าย
 			SqlStr sql = new SqlStr();
@@ -111,7 +111,7 @@ public class ManAcVatwhCrPrint {
 	 */
 	public static void saveGenDocno(List<FModelHasMap> lst_select, LoginBean loginBean) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			String docno = RunningAc.get_ACGL_VATWH_CR_DOCNO(dbc, lst_select.get(0).getInt("DOC_TYPE"), loginBean);// gen เลขเอกสาร
@@ -159,7 +159,7 @@ public class ManAcVatwhCrPrint {
 	public static void printData(List<FModelHasMap> lst_select, FJasperPrintList jasperPrintList, String menuId2,
 			LoginBean loginBean) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			TbfFCOMP.find(dbc, loginBean.getTboFcomp());// refresh ข้อมูลใน bean เผื่อแก้ไขในระหว่าง login
 
@@ -1011,7 +1011,7 @@ public class ManAcVatwhCrPrint {
 	 */
 	public static void saveCancel(List<FModelHasMap> lst_select, LoginBean loginBean) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 
 			int count = 0;

@@ -10,7 +10,7 @@ import com.pcc.sys.tbo.TboFPARA_COMP;
 
 public class TbfFPARA_COMP {
 	public static boolean insert(TboFPARA_COMP model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -28,7 +28,7 @@ public class TbfFPARA_COMP {
 	}
 
 	public static boolean update(TboFPARA_COMP model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -46,7 +46,7 @@ public class TbfFPARA_COMP {
 	}
 
 	public static boolean delete(TboFPARA_COMP model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -65,7 +65,7 @@ public class TbfFPARA_COMP {
 	}
 
 	public static boolean find(TboFPARA_COMP model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

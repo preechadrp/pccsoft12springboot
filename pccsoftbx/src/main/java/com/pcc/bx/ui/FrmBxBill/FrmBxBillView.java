@@ -163,7 +163,7 @@ public class FrmBxBillView extends FWindow {
 	}
 
 	private void read_record(String blno) throws WrongValueException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			read_record(dbc, blno);
 		}
 	}

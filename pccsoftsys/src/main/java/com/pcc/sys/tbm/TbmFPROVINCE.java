@@ -30,7 +30,7 @@ public class TbmFPROVINCE {
 	public static int getMax_provin_id() throws Exception {
 
 		int ret = 0;
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			String sql1 = " select max(aa.PROVIN_ID) as F1 from fprovince aa ";
 			try (java.sql.ResultSet rs1 = dbc.getResultSet(sql1);) {
 				if (rs1.next()) {

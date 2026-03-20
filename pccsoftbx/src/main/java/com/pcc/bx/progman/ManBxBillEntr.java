@@ -25,7 +25,7 @@ import com.pcc.sys.tbo.TboFCOMPBRANC;
 public class ManBxBillEntr {
 
 	public static void printReport(String comp_cde, String blno) throws Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			TboBXHEADER bxH = new TboBXHEADER();
 

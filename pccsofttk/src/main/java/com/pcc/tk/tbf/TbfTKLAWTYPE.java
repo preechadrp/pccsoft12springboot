@@ -9,7 +9,7 @@ import com.pcc.tk.tbo.TboTKLAWTYPE;
 
 public class TbfTKLAWTYPE {
 	public static boolean insert(TboTKLAWTYPE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return insert(dbc, model);
 		}
 	}
@@ -27,7 +27,7 @@ public class TbfTKLAWTYPE {
 	}
 
 	public static boolean update(TboTKLAWTYPE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model);
 		}
 	}
@@ -45,7 +45,7 @@ public class TbfTKLAWTYPE {
 	}
 
 	public static boolean update(TboTKLAWTYPE model, String fixWhere) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return update(dbc, model, fixWhere);
 		}
 	}
@@ -63,7 +63,7 @@ public class TbfTKLAWTYPE {
 	}
 
 	public static boolean delete(TboTKLAWTYPE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return delete(dbc, model);
 		}
 	}
@@ -82,7 +82,7 @@ public class TbfTKLAWTYPE {
 	}
 
 	public static boolean find(TboTKLAWTYPE model) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return find(dbc, model);
 		}
 	}

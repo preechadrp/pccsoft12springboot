@@ -40,7 +40,7 @@ public class TbmFCUS {
 	public static boolean getCustName(String cust_cde, String[] cust_info, LoginBean loginBean)
 			throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return getCustName(dbc, cust_cde, cust_info, loginBean);
 		}
 
@@ -101,7 +101,7 @@ public class TbmFCUS {
 	public static void getCust1(String cust_cde, String fname, String lname,
 			String idno, LoginBean loginBean, java.util.List<FModelHasMap> lst_data) throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			getCust1(dbc, cust_cde, fname, lname, idno, loginBean, lst_data);
 		}
 

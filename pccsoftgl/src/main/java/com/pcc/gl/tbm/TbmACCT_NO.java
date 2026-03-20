@@ -16,7 +16,7 @@ public class TbmACCT_NO {
 			LoginBean _loginBean) throws Exception {
 
 		dats.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			SqlStr sql = new SqlStr();
 			sql.addLine("select * from " + TboACCT_NO.tablename);
 			sql.addLine(" where COMP_CDE = '" + Fnc.sqlQuote(_loginBean.getCOMP_CDE()) + "' ");

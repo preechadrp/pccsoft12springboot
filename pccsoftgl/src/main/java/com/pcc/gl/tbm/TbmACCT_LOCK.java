@@ -11,7 +11,7 @@ public class TbmACCT_LOCK {
 
 	public static void checKPostDate(String comp_cde, java.sql.Date postdate) throws SQLException, Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			checKPostDate(dbc, comp_cde, postdate);
 		}
 

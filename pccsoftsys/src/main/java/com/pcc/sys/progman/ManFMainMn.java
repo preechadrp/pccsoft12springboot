@@ -180,7 +180,7 @@ public class ManFMainMn {
 	public static void getData(java.util.List<MenuListBeans> lst_menu, LoginBean loginBean) throws Exception {
 
 		lst_menu.clear();
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			java.util.List<MenuListBeans> dats = menuList(loginBean); //นำค่าเข้า list ทั้งหมดก่อน
 
@@ -305,7 +305,7 @@ public class ManFMainMn {
 	}
 
 	public static boolean isAdmintrator(String user_id, String comp_cde) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return isAdmintrator(dbc, user_id, comp_cde);
 		}
 	}
@@ -337,7 +337,7 @@ public class ManFMainMn {
 	}
 
 	public static boolean can_use_menu(String userid, String menu_id2) throws SQLException, Exception {
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			return can_use_menu(dbc, userid, menu_id2);
 		}
 	}

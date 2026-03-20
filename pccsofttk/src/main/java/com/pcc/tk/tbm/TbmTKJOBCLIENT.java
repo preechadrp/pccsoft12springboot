@@ -7,7 +7,7 @@ public class TbmTKJOBCLIENT {
 
 	public static void getDataByJobno(String comp_cde, String jobno, java.util.List<FModelHasMap> lst_data) throws Exception {
 		lst_data.clear();
-		try (FDbc dbc = FDbc.connectMasterDb();) {
+		try (FDbc dbc = new FDbc();) {
 			String sql = " select * from tkjobclient where COMP_CDE =? and JOBNO =? order by SEQ  ";
 			try(java.sql.ResultSet rs = dbc.getResultSetFw2(sql, comp_cde, jobno)){
 				while (rs.next()) {

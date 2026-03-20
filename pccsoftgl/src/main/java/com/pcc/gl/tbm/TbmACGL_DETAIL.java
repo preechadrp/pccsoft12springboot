@@ -50,7 +50,7 @@ public class TbmACGL_DETAIL {
 
 		lst_dat.clear();
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 
 			SqlStr sql = new SqlStr();
 			sql.addLine("select aa.COMP_CDE,aa.VOU_TYPE, aa.VOU_NO, aa.VOU_SEQ, aa.VOU_SEQ_SHOW ,");
@@ -144,7 +144,7 @@ public class TbmACGL_DETAIL {
 	public static void updateVouseq_Show(String comp_cde, String vou_type, String vou_no,
 			java.util.List<FModelHasMap> lst_dat, int vou_seq, int to_vou_seq_show) throws Exception {
 
-		try (FDbc dbc = FDbc.connectMasterDb()) {
+		try (FDbc dbc = new FDbc()) {
 			dbc.beginTrans();
 			updateVouseq_Show(dbc, comp_cde, vou_type, vou_no, lst_dat, vou_seq, to_vou_seq_show);
 			dbc.commit();
