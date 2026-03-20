@@ -123,9 +123,10 @@ public abstract class FDbcMaster implements AutoCloseable {
 	 * @throws SQLException
 	 */
 	public int executeSql(String sql) throws SQLException {
-		java.sql.Statement stm = objConn.createStatement();
-		stm.setQueryTimeout(this.getQueryTimeOut());
-		return stm.executeUpdate(sql);
+			try(java.sql.Statement stm = objConn.createStatement();){
+			stm.setQueryTimeout(this.getQueryTimeOut());
+			return stm.executeUpdate(sql);
+		}
 	}
 
 	/**
@@ -136,16 +137,17 @@ public abstract class FDbcMaster implements AutoCloseable {
 	 * @throws SQLException
 	 */
 	public int executeSql2(String sql, Object... values) throws SQLException {
-		java.sql.PreparedStatement stm = objConn.prepareStatement(sql);
+		try(java.sql.PreparedStatement stm = objConn.prepareStatement(sql);){
 
-		int idx = 1;
-		for (Object obj : values) {
-			stm.setObject(idx++, obj);
+			int idx = 1;
+			for (Object obj : values) {
+				stm.setObject(idx++, obj);
+			}
+	
+			stm.setQueryTimeout(this.getQueryTimeOut());
+	
+			return stm.executeUpdate();
 		}
-
-		stm.setQueryTimeout(this.getQueryTimeOut());
-
-		return stm.executeUpdate();
 	}
 
 	/**
