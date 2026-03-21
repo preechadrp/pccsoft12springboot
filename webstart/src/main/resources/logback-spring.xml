@@ -4,7 +4,7 @@
 	<!-- <property name="LOG_DIR" value="E:/pccsoft12Springboot" /> -->
 	
 	<!-- ดึงจาก vm argument -DmyLogPath -->
-	<property name="LOG_DIR" value="${myLogPath:-C:/logs}" />
+	<property name="LOG_DIR" value="${myLogPath:-./logs}" />
 	
 	<!-- ถ่้ารันแอปใน tomcat สามารใช้ ${catalina.home}/logs ได้เพื่อให้เขียนลง [tomcat_install_dir]/logs  -->
 	<!-- <property name="LOG_DIR" value="${catalina.home}/logs" />  --> 
