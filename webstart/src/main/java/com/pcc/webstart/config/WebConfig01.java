@@ -1,4 +1,4 @@
-package com.pcc.config;
+package com.pcc.webstart.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

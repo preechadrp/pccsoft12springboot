@@ -1,4 +1,4 @@
-package com.pcc.config;
+package com.pcc.webstart.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

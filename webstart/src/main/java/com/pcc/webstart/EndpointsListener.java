@@ -1,7 +1,7 @@
 /*
  * จะทำการ print path ที่เรา mapping ออกมาทั้งหมดตอน startup spring boot
  */
-package com.pcc;
+package com.pcc.webstart;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;

@@ -55,7 +55,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-                    <mainClass>com.pcc.Webstart</mainClass>
+                    <mainClass>com.pcc.webstart.Main</mainClass>
                     <!-- จะไปอยู่ใน root folder pccsoft12  -->
                     <outputDirectory>${project.basedir}/../../</outputDirectory>
                 </configuration>
