@@ -20,22 +20,6 @@ import com.pcc.sys.lib.MyStartConfigListener;
 @DependsOn("FirstConfig")
 public class WebConfig01 {
 
-//	@Override  //เมื่อใช้งาน @EnableWebMvc และ WebConfig01 implements WebMvcConfigurer  จะต้องจัดการ resource เพิ่มเพราะระบบจะไม่เห็น  path เหล่านี้
-//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//      registry.addResourceHandler("/resources/**") .addResourceLocations("classpath:/static/");
-//	    registry.addResourceHandler("/*.css").addResourceLocations("/");
-//	    registry.addResourceHandler("/font/**").addResourceLocations("font/");
-//	    registry.addResourceHandler("/img/**").addResourceLocations("img/");
-//	    registry.addResourceHandler("/javascripts/**").addResourceLocations("javascripts/");
-//	}
-//	
-//	@Override //เมื่อใช้งาน @EnableWebMvc และ WebConfig01 implements WebMvcConfigurer
-//	public void addViewControllers(ViewControllerRegistry registry) {
-//		System.out.println("set home page to redirect:/login");
-//	    registry.addViewController("/").setViewName("redirect:/login"); //ok
-//	    //registry.addViewController("/").setViewName("login"); //ok
-//	}
-
 	@Bean("MyStartConfigListener")
 	@Order(Ordered.HIGHEST_PRECEDENCE)
 	MyStartConfigListener myStartConfigListener() {
