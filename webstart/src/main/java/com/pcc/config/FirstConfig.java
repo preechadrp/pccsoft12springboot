@@ -21,13 +21,13 @@ public class FirstConfig {
 	@Value("${app.db.password}")
 	public String dbPassword;
 
-	@Value("${app.db.poolSize}")
+	@Value("${app.db.poolSize:10}")
 	public int dbPoolSize;
 
-	@Value("${app.db.poolName}")
+	@Value("${app.db.poolName:dbPool1}")
 	public String dbPoolName;
 	
-	@Value("${app.showdesc}")
+	@Value("${app.showdesc:Test}")
 	public String app_showdesc;
 	
 	@Value("${app.microservice.url}")
@@ -49,7 +49,7 @@ public class FirstConfig {
 		log.info("===Set database for db1===");
 		log.info("dbUrl : {}", dbUrl);
 		log.info("dbUser : {}", dbUser);
-		log.info("dbPassword : {}", dbPassword);
+		log.debug("dbPassword : {}", dbPassword);
 		log.info("dbPoolSize : {}", dbPoolSize);
 		log.info("dbPoolName : {}", dbPoolName);
 		com.pcc.sys.lib.FDbc.initializeDataSource(dbUrl, dbUser, dbPassword, dbPoolSize, dbPoolName);
