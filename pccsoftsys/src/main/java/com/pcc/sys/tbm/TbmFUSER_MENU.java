@@ -9,6 +9,9 @@ import com.pcc.sys.lib.Fnc;
 import com.pcc.sys.lib.SqlStr;
 import com.pcc.sys.tbo.TboFUSER_MENU;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TbmFUSER_MENU {
 
 	public static void del_from_user(FDbc dbc, String user_id) throws SQLException {
@@ -44,7 +47,7 @@ public class TbmFUSER_MENU {
 			sql.addLine("where aa.USER_ID = '" + Fnc.sqlQuote(user_id) + "' ");
 			sql.addLine("order by aa.USER_ID,aa.COMP_CDE,aa.USER_MENU_GROUP");
 
-			System.out.println(sql.getSql());
+			log.debug(sql.getSql());
 
 			try (java.sql.ResultSet rs = dbc.getResultSet(sql.getSql());) {
 				while (rs.next()) {
@@ -68,7 +71,7 @@ public class TbmFUSER_MENU {
 		String sql = " SELECT count(*) as F1 FROM " +
 				TboFUSER_MENU.tablename + " WHERE USER_ID = '" + Fnc.sqlQuote(user_id) +
 				"' and COMP_CDE = '" + Fnc.sqlQuote(comp_cde) + "' ";
-		System.out.println(sql);
+		log.debug(sql);
 		return dbc.getRecordCount(sql);
 	}
 

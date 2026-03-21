@@ -14,15 +14,16 @@ import com.pcc.sys.lib.SqlStr;
 import com.pcc.sys.tbo.TboFMENU_GROUP_D;
 import com.pcc.sys.tbo.TboFUSER_MENU;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 
  * @author preecha.d
  *
  */
+@Slf4j
 public class ManFMainMn {
 
-	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
-	
 	/**
 	 * ชื่อโปรแกรมไทย
 	 * @throws Exception 
@@ -66,9 +67,9 @@ public class ManFMainMn {
 		for (String mod : modules) {
 			if (!Fnc.isEmpty(mod) && mod.startsWith(prefix) ) {
 				String modName = mod.substring(prefix.length());
-				logger.info("module Name :" +modName);
+				log.debug("module Name :" +modName);
 				//if (modName.equals("bx")) {
-				//	System.out.println("debug");
+				//	log.debug("debug");
 				//}
 				loadMenu(list, "/com/pcc/" + modName.trim() + "/menuList.txt");
 			}
@@ -89,7 +90,7 @@ public class ManFMainMn {
 
 		if (lstData.size() > 0) {
 			for (String lineData1 : lstData) {
-				//System.out.println(lineData1); //test
+				//log.debug(lineData1); //test
 				if (lineData1.trim().startsWith("-")) {
 
 					//#-ชื่อเมนูไทย ` ชื่อเมนู Eng ถ้าว่างจะใช้ชื่อเมนูไทย ` โมดูล ` รหัสโปรแกรม ` รหัสเรียกโปรแกรม ถ้าว่างจะเท่ากับรหัสโปรแกรม ` รหัสโปรแกรมแยกเมนู(ห้ามซ้ำกัน) `css class ` ToolTipText
@@ -144,7 +145,7 @@ public class ManFMainMn {
 				}
 			}
 		} else {
-			System.out.println(menuListFile + " ไม่มีข้อความเมนู");
+			log.debug("{} ไม่มีข้อความเมนู", menuListFile );
 		}
 
 	}
@@ -227,7 +228,7 @@ public class ManFMainMn {
 		sql.addLine("SELECT DISTINCT MENU_LEVEL,  MODU,  MENU_ID1,  MENU_ID2 , MENU_ID3, THAI_NAME,  ENG_NAME ");
 		sql.addLine("FROM " + TboFMENU_GROUP_D.tablename + " WHERE USER_MENU_GROUP IN (" + Fnc.sqlInStr(lst_USER_MENU_GROUP) + ") ");
 		sql.addLine("ORDER BY KEY1");
-		System.out.println(sql.getSql());
+		log.debug(sql.getSql());
 		try (java.sql.ResultSet rs = dbc.getResultSetFw3(sql.getSql(), 1000);) {
 			while (rs.next()) {
 
@@ -313,7 +314,7 @@ public class ManFMainMn {
 	public static boolean isAdmintrator(FDbc dbc, String user_id, String comp_cde) throws SQLException {
 		String sql = " SELECT count(*) FROM " + TboFUSER_MENU.tablename + " WHERE USER_ID = '" +
 				Fnc.sqlQuote(user_id) + "' AND USER_MENU_GROUP = '" + FConstComm.AdminGroup + "' AND COMP_CDE = '" + Fnc.sqlQuote(comp_cde) + "' ";
-		System.out.println(sql);
+		log.debug(sql);
 		return dbc.getRecordCount(sql) > 0 ? true : false;
 	}
 
@@ -321,7 +322,7 @@ public class ManFMainMn {
 		java.util.List<String> list = new ArrayList<>();
 		String sql = " SELECT USER_MENU_GROUP FROM " + TboFUSER_MENU.tablename +
 				" WHERE USER_ID = '" + Fnc.sqlQuote(user_id) + "' and COMP_CDE = '" + Fnc.sqlQuote(comp_cde) + "' ";
-		System.out.println(sql);
+		log.debug(sql);
 		try (java.sql.ResultSet rs = dbc.getResultSet(sql);) {
 			while (rs.next()) {
 				list.add(rs.getString("USER_MENU_GROUP"));
@@ -332,7 +333,7 @@ public class ManFMainMn {
 
 	public static void clearOldData(FDbc dbc, String user_id) throws SQLException {
 		String sql = " DELETE FROM " + TboFUSER_MENU.tablename + " WHERE USER_ID = '" + Fnc.sqlQuote(user_id) + "' ";
-		System.out.println(sql);
+		log.debug(sql);
 		dbc.executeSql(sql);
 	}
 
@@ -346,7 +347,7 @@ public class ManFMainMn {
 		String sql = "SELECT count(*) FROM " + TboFUSER_MENU.tablename + " u LEFT JOIN " + TboFMENU_GROUP_D.tablename;
 		sql += " ug ON u.USER_MENU_GROUP=ug.USER_MENU_GROUP ";
 		sql += " WHERE u.USER_ID='" + Fnc.sqlQuote(userid) + "' AND ug.MENU_ID2='" + Fnc.sqlQuote(menu_id2) + "' ";
-		System.out.println(sql);
+		log.debug(sql);
 		return dbc.getRecordCount(sql) > 0 ? true : false;
 	}
 
