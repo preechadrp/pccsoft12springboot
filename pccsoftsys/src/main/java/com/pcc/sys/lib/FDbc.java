@@ -14,7 +14,6 @@ public class FDbc extends FDbcMaster {
 
 	public FDbc() throws Exception {
 		try {
-			// HikariCP จะจัดการการให้และคืน Connection ให้โดยอัตโนมัติ
 			if (dataSource == null) {
 				throw new IllegalStateException("DataSource Not Initialized");
 			}
