@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FConfig {
 
-	public static String getAppName() {
+	public static String getAppInfo() {
 		//String s1 = getConfig1("app_name");
 		String s2 = getConfig2("svnver");
 		String s3 = getConfig2("update");

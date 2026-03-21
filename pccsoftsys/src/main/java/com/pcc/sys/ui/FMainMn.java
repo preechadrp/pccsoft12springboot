@@ -98,7 +98,7 @@ public class FMainMn extends FWindow {
 			}
 
 			//this.setTitle(FConfig.getConfig1_AppName());
-			this.lblAppInfo.setValue(FConfig.getAppName());
+			this.lblAppInfo.setValue(FConfig.getAppInfo());
 			this.lblComp.setValue(this.loginBean.getCOMP_CDE() + ":" + this.loginBean.getTboFcomp().getCOMP_NAME());
 			this.lblUser.setValue(this.loginBean.getTboFuser().getUSER_ID());
 			this.setDbName();
