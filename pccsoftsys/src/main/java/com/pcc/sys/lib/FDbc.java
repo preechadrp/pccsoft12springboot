@@ -13,6 +13,7 @@ public class FDbc extends FDbcMaster {
 	private static HikariDataSource dataSource;
 
 	public FDbc() throws Exception {
+		super();
 		try {
 			if (dataSource == null) {
 				throw new IllegalStateException("DataSource Not Initialized");
