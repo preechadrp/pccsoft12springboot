@@ -52,7 +52,7 @@ public class FirstConfig {
 		log.info("dbPassword : {}", dbPassword);
 		log.info("dbPoolSize : {}", dbPoolSize);
 		log.info("dbPoolName : {}", dbPoolName);
-		com.pcc.sys.lib.db.Db1.initializeDataSource(dbUrl, dbUser, dbPassword, dbPoolSize, dbPoolName);
+		com.pcc.sys.lib.FDbc.initializeDataSource(dbUrl, dbUser, dbPassword, dbPoolSize, dbPoolName);
 		
 	}
 
