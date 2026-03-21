@@ -6,10 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public abstract class FDbcMaster implements AutoCloseable {
 	
-	static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Thread.currentThread().getStackTrace()[1].getClassName());
-
 	// Connection.TRANSACTION_SERIALIZABLE
 	// Connection.TRANSACTION_NONE
 	// Connection.TRANSACTION_READ_UNCOMMITTED
@@ -22,7 +23,7 @@ public abstract class FDbcMaster implements AutoCloseable {
 		//ทดสอบเมื่อ 5/3/63 เมนูบันทึกบัญชี GL(สมุดรายวัน)
 		if (Locale.getDefault() != Locale.ENGLISH) {
 			Locale.setDefault(Locale.ENGLISH);
-			logger.info("Locale.setDefault(Locale.ENGLISH)");
+			log.info("Locale.setDefault(Locale.ENGLISH)");
 		}
 	}
 
@@ -82,7 +83,7 @@ public abstract class FDbcMaster implements AutoCloseable {
 	 * @throws SQLException
 	 */
 	public void beginTrans() throws SQLException {
-		logger.info("beginTrans()");
+		log.info("beginTrans()");
 		objConn.setAutoCommit(false);
 		objConn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
 	}
@@ -92,7 +93,7 @@ public abstract class FDbcMaster implements AutoCloseable {
 	 * @throws SQLException
 	 */
 	public void commit() throws SQLException {
-		logger.info("commit()");
+		log.info("commit()");
 		objConn.commit();
 		objConn.setAutoCommit(true);
 		objConn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);

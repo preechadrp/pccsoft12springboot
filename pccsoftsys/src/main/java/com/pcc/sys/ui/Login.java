@@ -49,7 +49,7 @@ public class Login extends FWindow {
 			} else {
 
 				//this.setTitle(FConfig.getConfig1_AppName());
-				lblINFO.setValue(FConfig.getConfig1_AppName());
+				lblINFO.setValue(FConfig.getAppName());
 
 //			String userAgent = Executions.getCurrent().getUserAgent();
 //			 System.out.println("userAgent : " + userAgent);

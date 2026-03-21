@@ -21,8 +21,8 @@ import org.json.JSONObject;
 import org.zkoss.util.resource.Labels;
 import org.zkoss.zul.Filedownload;
 
+import com.pcc.ShareVaribles;
 import com.pcc.sys.beans.LoginBean;
-import com.pcc.sys.lib.FConfig;
 import com.pcc.sys.lib.FDbc;
 import com.pcc.sys.lib.FnDate;
 import com.pcc.sys.lib.Fnc;
@@ -35,8 +35,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ApiUtil {
-
-	public static final String webserviceUrl = FConfig.getConfig2("WebserviceUrl");
 
 	public static java.io.PrintWriter getPrintWriter(HttpServletResponse response) throws IOException {
 
@@ -164,7 +162,11 @@ public class ApiUtil {
 		//System.out.println("urlParameters :" + urlParameters);
 		byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
 
-		String url = webserviceUrl + "/appapi";
+		String root_url = ShareVaribles.app_webservice_url + "/appapi";
+		if (ShareVaribles.app_webservice_url.endsWith("/")) {
+			root_url = ShareVaribles.app_webservice_url + "appapi";
+		}
+		String url = root_url;
 		//System.out.println("url : " + url);
 
 		{ //new By HttpClient
@@ -222,7 +224,11 @@ public class ApiUtil {
 		// System.out.println("urlParameters :" + urlParameters);
 		byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
 
-		String url = webserviceUrl + "/auth/login";
+		String root_url = ShareVaribles.app_webservice_url + "/appapi";
+		if (ShareVaribles.app_webservice_url.endsWith("/")) {
+			root_url = ShareVaribles.app_webservice_url + "appapi";
+		}
+		String url = root_url;
 
 		{ // new By HttpClient
 

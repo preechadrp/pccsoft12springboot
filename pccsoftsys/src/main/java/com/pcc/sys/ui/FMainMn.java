@@ -15,6 +15,7 @@ import org.zkoss.zul.Menupopup;
 import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Textbox;
 
+import com.pcc.ShareVaribles;
 import com.pcc.api.core.ApiUtil;
 import com.pcc.api.core.JwtTokenUtil;
 import com.pcc.sys.beans.LoginBean;
@@ -97,7 +98,7 @@ public class FMainMn extends FWindow {
 			}
 
 			//this.setTitle(FConfig.getConfig1_AppName());
-			this.lblAppInfo.setValue(FConfig.getConfig1_AppName());
+			this.lblAppInfo.setValue(FConfig.getAppName());
 			this.lblComp.setValue(this.loginBean.getCOMP_CDE() + ":" + this.loginBean.getTboFcomp().getCOMP_NAME());
 			this.lblUser.setValue(this.loginBean.getTboFuser().getUSER_ID());
 			this.setDbName();
@@ -153,7 +154,7 @@ public class FMainMn extends FWindow {
 		try (FDbc dbc = new FDbc()) {
 			
 			String dbname = dbc.getDbName();
-			String showDesc = FConfig.getConfig2("ShowDesc");
+			String showDesc = ShareVaribles.app_showdesc;
 			if (!Fnc.isEmpty(showDesc)) {
 				dbname = dbname + " - " + showDesc;
 			}

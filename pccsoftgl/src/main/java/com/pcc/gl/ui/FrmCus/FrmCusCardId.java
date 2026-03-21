@@ -12,9 +12,9 @@ import org.zkoss.zul.RowRenderer;
 import org.zkoss.zul.SimpleListModel;
 import org.zkoss.zul.Textbox;
 
+import com.pcc.ShareVaribles;
 import com.pcc.gl.tbm.TbmFCUS;
 import com.pcc.sys.beans.LoginBean;
-import com.pcc.sys.lib.FConfig;
 import com.pcc.sys.lib.FModelHasMap;
 import com.pcc.sys.lib.FWindow;
 import com.pcc.sys.lib.Msg;
@@ -78,7 +78,7 @@ public class FrmCusCardId extends FWindow {
 
 	@Override
 	public void formInit() {
-		String linkMs = FConfig.getConfig2("MicroServiceLink");
+		String linkMs = ShareVaribles.app_microservice_url;
 		if (!linkMs.endsWith("/")) {
 			linkMs += "/";
 		}
