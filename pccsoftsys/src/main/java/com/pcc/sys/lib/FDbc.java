@@ -33,7 +33,7 @@ public class FDbc extends FDbcMaster {
 		log.info("initializeDataSource");
 
 		// 1. สร้าง HikariConfig
-		var config = new HikariConfig();
+		HikariConfig config = new HikariConfig();
 
 		// 2. ตั้งค่า Connection (สำหรับ Pure JDBC)
 		config.setJdbcUrl(dbUrl);
