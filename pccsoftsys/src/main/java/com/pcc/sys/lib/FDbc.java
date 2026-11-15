@@ -42,7 +42,7 @@ public class FDbc extends FDbcMaster {
 
 		// 3. ตั้งค่า Pool (ค่าแนะนำ)
 		config.setMaximumPoolSize(dbPoolSize); // จำนวน Connection สูงสุด
-		config.setMinimumIdle(1);              // คงไว้ขั้นต่ำ 2 connection
+		config.setMinimumIdle(1);              // คงไว้ขั้นต่ำ 1 connection
 		config.setIdleTimeout(180000);         // 3 นาที (ms)
 		config.setMaxLifetime(1800000);        // 30 นาที (กัน connection เน่า)
 		config.setConnectionTimeout(30000);    // timeout ตอนขอ connection
