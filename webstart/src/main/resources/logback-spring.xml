@@ -3,11 +3,13 @@
 
 	<!-- <property name="LOG_DIR" value="E:/pccsoft12Springboot" /> -->
 	
-	<!-- ดึงจาก vm argument -DmyLogPath -->
-	<property name="LOG_DIR" value="${myLogPath:-./logs}" />
-	
-	<!-- ถ่้ารันแอปใน tomcat สามารใช้ ${catalina.home}/logs ได้เพื่อให้เขียนลง [tomcat_install_dir]/logs  -->
-	<!-- <property name="LOG_DIR" value="${catalina.home}/logs" />  --> 
+	<!-- ค่า default: ถ้ารันใน tomcat จะเขียนลง [tomcat_install_dir]/logs ถ้าไม่ใช่จะเขียนลง ./logs -->
+	<property name="DEFAULT_LOG_DIR" value="${catalina.home:-.}/logs" />
+
+	<!-- ดึงค่า myLogPath จาก Spring Environment: ใช้ได้ทั้ง vm argument -DmyLogPath=...
+	     และ myLogPath=... ใน application.properties ถ้าไม่ได้กำหนดจะใช้ DEFAULT_LOG_DIR -->
+	<springProperty scope="context" name="LOG_DIR" source="myLogPath" defaultValue="${DEFAULT_LOG_DIR}" />
+
 
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
