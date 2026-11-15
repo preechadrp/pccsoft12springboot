@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<!-- <property name="LOG_DIR" value="E:/pccsoft12Springboot" /> -->
-	
 	<!-- ค่า default: ถ้ารันใน tomcat จะเขียนลง [tomcat_install_dir]/logs ถ้าไม่ใช่จะเขียนลง ./logs -->
 	<property name="DEFAULT_LOG_DIR" value="${catalina.home:-.}/logs" />
 
