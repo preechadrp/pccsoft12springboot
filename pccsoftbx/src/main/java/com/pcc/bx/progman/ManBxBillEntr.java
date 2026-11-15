@@ -55,9 +55,11 @@ public class ManBxBillEntr {
 					String p_BRANNAME = "";
 					String p_comp_address = "";
 					String p_comp_telno = "";
+					String p_comptaxid = "";
 					TboFCOMP fcomp = TbmFCOMP.getTable(comp_cde);
 					if (fcomp != null) {
 						p_COMPNAME = fcomp.getCOMP_NAME();
+						p_comptaxid = fcomp.getTAXNO();
 					}
 					TboFCOMPBRANC branc = TbmFCOMPBRANC.getBranc(dbc, comp_cde, bxH.getBRANC_CDE());
 					if (branc != null) {
@@ -70,7 +72,7 @@ public class ManBxBillEntr {
 					reportParams.put("BRANNAME", p_BRANNAME);
 					reportParams.put("COMPADDR1", p_comp_address);
 					reportParams.put("P_COMP_TELNO", p_comp_telno);
-					reportParams.put("COMPTAXID", fcomp.getTAXNO());
+					reportParams.put("COMPTAXID", p_comptaxid);
 
 					// ==รายละเอียด
 					reportParams.put("BLNO", bxH.getBLNO());
